@@ -303,6 +303,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: nowrap;
   margin-bottom: 14px;
 }
 
@@ -316,6 +317,7 @@ a {
   border-radius: 100px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  white-space: nowrap;
   margin-right: auto;
   margin-left: 5px;
 }
