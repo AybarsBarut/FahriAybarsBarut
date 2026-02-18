@@ -310,7 +310,7 @@ a {
   position: absolute;
   top: 14px;
   right: 64px;
-  background: rgba(139, 92, 246, 0.15);
+  background: transparent;
   border: 1px solid rgba(139, 92, 246, 0.3);
   color: var(--accent-light);
   font-size: 11px;
