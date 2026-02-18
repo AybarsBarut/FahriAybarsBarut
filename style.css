@@ -317,6 +317,7 @@ a {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   margin-right: auto;
+  margin-left: 5px;
 }
 
 .project-lang {
