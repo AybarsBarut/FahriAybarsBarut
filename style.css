@@ -52,6 +52,35 @@ a {
 }
 
 /* ===========================
+   Language Switcher
+   =========================== */
+.lang-switch {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 100;
+}
+
+.lang-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 2rem;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.03);
+  font-family: var(--font-mono);
+}
+
+.lang-link:hover {
+  color: var(--text-primary);
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ===========================
    Animated Background
    =========================== */
 .bg-grid {
