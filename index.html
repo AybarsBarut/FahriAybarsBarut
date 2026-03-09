@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fahri Aybars Barut — Game Developer & Engine Enthusiast</title>
+    <title data-i18n="page_title">Fahri Aybars Barut</title>
     <meta name="description"
-        content="Fahri Aybars Barut — Game Developer & Engine Enthusiast. Unity, custom game engines, performance tools ve gerçek zamanlı simülasyon alanlarında projeler." />
+        content="Fahri Aybars Barut. Unity, custom game engines, performance tools ve gerçek zamanlı simülasyon alanlarında projeler." />
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -1328,6 +1328,7 @@
                 nav_vision: 'Vizyon',
                 nav_projects: 'Projeler',
                 nav_contact: 'İletişim',
+                page_title: 'Fahri Aybars Barut — Bilgisayar Mühendisi',
                 hero_tag: 'Bilgisayar Mühendisi ve VR Unity Proje Geliştiricisi',
                 hero_title: 'Gerçek Zamanlı<br/><span class="accent">Dünyalar</span> İnşa Et',
                 hero_sub: 'Bilgisayar Mühendisliği altyapısıyla Unity, özel oyun motorları ve düşük seviyeli sistemler üzerine araçlar ve deneyimler yaratıyorum.',
@@ -1367,6 +1368,7 @@
                 nav_vision: 'Vision',
                 nav_projects: 'Projects',
                 nav_contact: 'Contact',
+                page_title: 'Fahri Aybars Barut — Computer Engineer',
                 hero_tag: 'Computer Science Degree And VR Unity Developer',
                 hero_title: 'Building<br/><span class="accent">Real-Time</span> Worlds',
                 hero_sub: 'With a Computer Engineering background, I craft tools and experiences in Unity, custom game engines, and low-level systems.',
@@ -1422,6 +1424,9 @@
                 const key = el.dataset.i18n;
                 if (dict[key] !== undefined) el.textContent = dict[key];
             });
+
+            // Also update document.title if it was changed
+            document.title = dict['page_title'] || 'Fahri Aybars Barut';
 
             // HTML nodes (can contain tags)
             document.querySelectorAll('[data-i18n-html]').forEach(el => {
