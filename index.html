@@ -742,308 +742,6 @@
             transform: translateX(100%);
         }
 
-        /* TOOLS */
-        #tools {
-            position: relative;
-            overflow: hidden;
-            background:
-                radial-gradient(circle at top right, rgba(0, 212, 255, 0.12), transparent 32%),
-                linear-gradient(180deg, #090c11 0%, #090909 100%);
-            border-top: 1px solid rgba(0, 212, 255, 0.08);
-            border-bottom: 1px solid rgba(0, 212, 255, 0.08);
-        }
-
-        #tools::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.035), transparent);
-            transform: translateX(-100%);
-            animation: toolsSweep 14s linear infinite;
-        }
-
-        @keyframes toolsSweep {
-            to {
-                transform: translateX(100%);
-            }
-        }
-
-        .tools-shell {
-            position: relative;
-            z-index: 1;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .tools-lead {
-            max-width: 780px;
-            margin-top: 1.5rem;
-            color: #8d96a3;
-            line-height: 1.9;
-        }
-
-        .tools-hero-grid,
-        .tools-grid,
-        .tool-bottom-grid {
-            display: grid;
-            gap: 1.5rem;
-        }
-
-        .tools-hero-grid {
-            grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.9fr);
-            margin-top: 3rem;
-        }
-
-        .tools-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            margin-top: 1.5rem;
-        }
-
-        .tool-bottom-grid {
-            grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-            margin-top: 1.5rem;
-        }
-
-        .tool-panel {
-            position: relative;
-            overflow: hidden;
-            padding: 2rem;
-            border-radius: 24px;
-            border: 1px solid rgba(0, 212, 255, 0.12);
-            background: linear-gradient(180deg, rgba(20, 20, 20, 0.96), rgba(10, 10, 10, 0.96));
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.24);
-        }
-
-        .tool-panel::after {
-            content: '';
-            position: absolute;
-            inset: auto -40px -80px auto;
-            width: 180px;
-            height: 180px;
-            background: radial-gradient(circle, rgba(0, 212, 255, 0.14), transparent 72%);
-            pointer-events: none;
-        }
-
-        .tool-panel > * {
-            position: relative;
-            z-index: 1;
-        }
-
-        .tool-kicker {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.55rem;
-            font-size: 0.72rem;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            color: #00D4FF;
-            font-weight: 700;
-        }
-
-        .tool-kicker::before {
-            content: '';
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #00D4FF;
-            box-shadow: 0 0 16px rgba(0, 212, 255, 0.7);
-        }
-
-        .tool-headline,
-        .tool-section-title {
-            font-family: 'Montserrat', sans-serif;
-            color: #fff;
-            line-height: 1.15;
-            letter-spacing: -0.02em;
-        }
-
-        .tool-headline {
-            margin-top: 1rem;
-            font-size: clamp(1.8rem, 4vw, 3rem);
-            font-weight: 900;
-            max-width: 760px;
-        }
-
-        .tool-section-title {
-            margin-top: 0.95rem;
-            font-size: clamp(1.2rem, 2.4vw, 1.65rem);
-            font-weight: 800;
-        }
-
-        .tool-copy {
-            margin-top: 1rem;
-            color: #a5afbd;
-            line-height: 1.8;
-            max-width: 760px;
-        }
-
-        .tool-copy--tight {
-            max-width: none;
-        }
-
-        .tool-pill-list,
-        .tool-chip-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin-top: 1.5rem;
-        }
-
-        .tool-pill,
-        .tool-chip {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.72rem 1rem;
-            border-radius: 999px;
-            border: 1px solid rgba(0, 212, 255, 0.16);
-            background: rgba(255, 255, 255, 0.03);
-            color: #d2f6ff;
-            font-size: 0.84rem;
-            line-height: 1.3;
-        }
-
-        .tool-list,
-        .tool-flow,
-        .tool-code-list,
-        .tool-stat-grid {
-            margin-top: 1.35rem;
-        }
-
-        .tool-list {
-            display: grid;
-            gap: 0.85rem;
-        }
-
-        .tool-list-item {
-            position: relative;
-            padding-left: 1.25rem;
-            color: #b7c0cb;
-            line-height: 1.75;
-        }
-
-        .tool-list-item::before {
-            content: '';
-            position: absolute;
-            top: 0.72rem;
-            left: 0;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #00D4FF;
-            box-shadow: 0 0 14px rgba(0, 212, 255, 0.5);
-        }
-
-        .tool-flow {
-            display: grid;
-            gap: 0.8rem;
-        }
-
-        .tool-flow-step {
-            display: grid;
-            grid-template-columns: 38px 1fr;
-            gap: 0.9rem;
-            align-items: start;
-            padding: 0.95rem 1rem;
-            border-radius: 18px;
-            border: 1px solid rgba(0, 212, 255, 0.1);
-            background: rgba(255, 255, 255, 0.03);
-        }
-
-        .tool-flow-step span {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 38px;
-            height: 38px;
-            border-radius: 14px;
-            background: rgba(0, 212, 255, 0.12);
-            color: #00D4FF;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-        }
-
-        .tool-flow-step p {
-            color: #b8c2cd;
-            line-height: 1.7;
-        }
-
-        .tool-code-list {
-            display: grid;
-            gap: 0.7rem;
-        }
-
-        .tool-code-line {
-            border-radius: 16px;
-            border: 1px solid rgba(0, 212, 255, 0.1);
-            background: rgba(0, 0, 0, 0.28);
-            padding: 0.9rem 1rem;
-            color: #d7f5ff;
-            font-family: Consolas, 'SFMono-Regular', monospace;
-            font-size: 0.84rem;
-            line-height: 1.65;
-        }
-
-        .tool-stat-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 0.9rem;
-        }
-
-        .tool-stat {
-            padding: 1rem;
-            border-radius: 18px;
-            border: 1px solid rgba(0, 212, 255, 0.08);
-            background: rgba(255, 255, 255, 0.03);
-        }
-
-        .tool-stat strong {
-            display: block;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.92rem;
-            font-weight: 800;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: #fff;
-        }
-
-        .tool-stat span {
-            display: block;
-            margin-top: 0.45rem;
-            color: #8e98a6;
-            line-height: 1.6;
-            font-size: 0.92rem;
-        }
-
-        @media (max-width: 1080px) {
-            .tools-hero-grid,
-            .tools-grid,
-            .tool-bottom-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .tool-panel {
-                padding: 1.35rem;
-                border-radius: 20px;
-            }
-
-            .tool-flow-step {
-                grid-template-columns: 34px 1fr;
-            }
-
-            .tool-flow-step span {
-                width: 34px;
-                height: 34px;
-                border-radius: 12px;
-            }
-
-            .tool-stat-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
         /* ─────────── FOOTER ─────────── */
         #footer {
             background: #080808;
@@ -1193,7 +891,6 @@
         <div class="nav-links hidden md:flex">
             <a href="#vision" data-i18n="nav_vision">Vizyon</a>
             <a href="#projects" data-i18n="nav_projects">Projeler</a>
-            <a href="#tools" data-i18n="nav_tools">Tools</a>
             <a href="#footer" data-i18n="nav_contact">İletişim</a>
         </div>
         <!-- Hamburger (mobile only) -->
@@ -1206,7 +903,6 @@
     <div id="mobile-menu">
         <a href="#vision" data-i18n="nav_vision" onclick="toggleMobileMenu()">Vizyon</a>
         <a href="#projects" data-i18n="nav_projects" onclick="toggleMobileMenu()">Projeler</a>
-        <a href="#tools" data-i18n="nav_tools" onclick="toggleMobileMenu()">Tools</a>
         <a href="#footer" data-i18n="nav_contact" onclick="toggleMobileMenu()">İletişim</a>
     </div>
 
@@ -1308,12 +1004,12 @@
                         <p class="project-desc" data-i18n="p1_desc">SDL2 üzerine inşa edilmiş, 128-tickrate sabit zaman
                             adımlı oyun döngüsü ve değişken kare hızlı render pipeline'a sahip özel oyun motoru.</p>
                         <a href="https://github.com/AybarsBarut/Archura-Game-Engine-SDL" target="_blank"
-                            class="project-link">
-                            <span data-i18n="view_on_github">GitHub'da İncele</span>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2.5">
-                                <path d="M5 12h14M12 5l7 7-7 7" />
-                            </svg>
+                            class="project-link"></a>
+                        <span data-i18n="view_on_github">GitHub'da İncele</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
                         </a>
                     </div>
                 </div>
@@ -1447,196 +1143,11 @@
         </div>
     </section>
 
-    <!-- TOOLS -->
-    <section id="tools" class="section">
-        <div class="tools-shell">
-            <div class="section-label reveal" data-i18n="tools_label">// 03 - Tools</div>
-            <h2 class="section-title reveal" data-i18n="tools_title">Guvenli Dokuman Platformu</h2>
-            <p class="tools-lead reveal" data-i18n="tools_intro">
-                PDF operasyonlari ve AI destekli CV uretimi icin, gercek bir startup MVP'sine yakisan guvenlik,
-                gizlilik, worker izolasyonu ve net servis sinirlariyla tasarlanmis bir urun vitrini.
-            </p>
-
-            <div class="tools-hero-grid">
-                <article class="tool-panel reveal">
-                    <div class="tool-kicker" data-i18n="tools_spotlight_kicker">Platform Scope</div>
-                    <h3 class="tool-headline" data-i18n="tools_spotlight_title">
-                        PDF islemleri, AI resume olusturma ve privacy-first pipeline ayni catida.
-                    </h3>
-                    <p class="tool-copy" data-i18n="tools_spotlight_body">
-                        Next.js tabanli arayuz, TypeScript API, queue destekli izole worker'lar, signed URL indirmeleri
-                        ve retention politikasi ile ciddi bir SaaS temeli.
-                    </p>
-                    <div class="tool-pill-list" data-i18n-html="tools_spotlight_stack">
-                        <span class="tool-pill">Next.js App Router</span>
-                        <span class="tool-pill">TypeScript strict</span>
-                        <span class="tool-pill">Tailwind UI</span>
-                        <span class="tool-pill">NestJS / Express</span>
-                        <span class="tool-pill">BullMQ + Redis</span>
-                        <span class="tool-pill">PostgreSQL</span>
-                        <span class="tool-pill">S3 storage</span>
-                        <span class="tool-pill">Sandbox workers</span>
-                    </div>
-                </article>
-
-                <article class="tool-panel reveal">
-                    <div class="tool-kicker" data-i18n="tools_arch_kicker">Job Architecture</div>
-                    <h3 class="tool-section-title" data-i18n="tools_arch_title">
-                        Yukle, izole ortamda isle, kisa omurle teslim et.
-                    </h3>
-                    <div class="tool-flow" data-i18n-html="tools_arch_flow">
-                        <div class="tool-flow-step">
-                            <span>1</span>
-                            <p>Upload asamasinda MIME, extension, magic byte ve dosya limiti kontrolleri uygulanir.</p>
-                        </div>
-                        <div class="tool-flow-step">
-                            <span>2</span>
-                            <p>Dosya gecici izole storage'a tasinir, orijinal dosya adi asla guvenilmez.</p>
-                        </div>
-                        <div class="tool-flow-step">
-                            <span>3</span>
-                            <p>API, is tanimini BullMQ sirasina yollar; worker kendi job klasorunde calisir.</p>
-                        </div>
-                        <div class="tool-flow-step">
-                            <span>4</span>
-                            <p>Sonuc sadece kisa omurlu signed URL ile indirilir, ardindan cleanup job devreye girer.</p>
-                        </div>
-                    </div>
-                </article>
-            </div>
-
-            <div class="tools-grid">
-                <article class="tool-panel reveal">
-                    <div class="tool-kicker" data-i18n="tools_pdf_kicker">PDF Tools</div>
-                    <h3 class="tool-section-title" data-i18n="tools_pdf_title">Cekirdek belge islemleri</h3>
-                    <div class="tool-chip-list" data-i18n-html="tools_pdf_items">
-                        <span class="tool-chip">Merge PDF</span>
-                        <span class="tool-chip">Split PDF</span>
-                        <span class="tool-chip">Compress PDF</span>
-                        <span class="tool-chip">Rotate PDF</span>
-                        <span class="tool-chip">Reorder Pages</span>
-                        <span class="tool-chip">Delete Pages</span>
-                        <span class="tool-chip">Extract Pages</span>
-                        <span class="tool-chip">Watermark</span>
-                        <span class="tool-chip">Page Numbers</span>
-                        <span class="tool-chip">Protect PDF</span>
-                        <span class="tool-chip">Unlock PDF</span>
-                        <span class="tool-chip">Repair PDF</span>
-                        <span class="tool-chip">PDF to DOCX</span>
-                        <span class="tool-chip">PDF to PPTX</span>
-                        <span class="tool-chip">PDF to XLSX</span>
-                        <span class="tool-chip">PDF to JPG/PNG</span>
-                        <span class="tool-chip">JPG/PNG to PDF</span>
-                        <span class="tool-chip">Word to PDF</span>
-                        <span class="tool-chip">PowerPoint to PDF</span>
-                        <span class="tool-chip">Excel to PDF</span>
-                    </div>
-                </article>
-
-                <article class="tool-panel reveal">
-                    <div class="tool-kicker" data-i18n="tools_resume_kicker">AI CV Builder</div>
-                    <h3 class="tool-section-title" data-i18n="tools_resume_title">ATS ve creative modlu resume editor</h3>
-                    <div class="tool-list" data-i18n-html="tools_resume_items">
-                        <div class="tool-list-item">Step wizard ve tek sayfa editor modu ile hizli duzenleme akisi.</div>
-                        <div class="tool-list-item">Live preview, drag and drop section siralama, template switcher ve autosave.</div>
-                        <div class="tool-list-item">Summary, experience bullet, skills formatting ve cover letter icin AI destek aksiyonlari.</div>
-                        <div class="tool-list-item">PDF, JSON ve plain text export; lokal draft ve hesap bazli kayit destegi.</div>
-                        <div class="tool-list-item">Cok dilli icerik, photo upload/crop ve LinkedIn import icin hazir entegrasyon boslugu.</div>
-                    </div>
-                </article>
-
-                <article class="tool-panel reveal">
-                    <div class="tool-kicker" data-i18n="tools_security_kicker">Security + Privacy</div>
-                    <h3 class="tool-section-title" data-i18n="tools_security_title">
-                        Upload, auth ve retention katmanlari ilk gunden sert.
-                    </h3>
-                    <div class="tool-list" data-i18n-html="tools_security_items">
-                        <div class="tool-list-item">MIME, extension, magic byte, page count ve conversion limit kontrolu.</div>
-                        <div class="tool-list-item">Antivirus / ClamAV plug-in mimarisi ve supheli dosyalar icin quarantine akisi.</div>
-                        <div class="tool-list-item">Non-root worker, read-only filesystem, per-job temp klasor ve outbound network kapatma.</div>
-                        <div class="tool-list-item">Argon2 veya bcrypt ile auth; secure cookie, CSRF, RBAC ve ownership kontrolu.</div>
-                        <div class="tool-list-item">Signed download link, audit log, anomaly hook ve GDPR farkindaligi olan retention kurallari.</div>
-                    </div>
-                </article>
-
-                <article class="tool-panel reveal">
-                    <div class="tool-kicker" data-i18n="tools_api_kicker">API + Ops</div>
-                    <h3 class="tool-section-title" data-i18n="tools_api_title">
-                        REST, queue ve observability tek yuzde toplanir.
-                    </h3>
-                    <div class="tool-code-list" data-i18n-html="tools_api_items">
-                        <div class="tool-code-line">POST /api/files/upload  - validation + quarantine-aware upload</div>
-                        <div class="tool-code-line">POST /api/jobs  - enqueue secure PDF conversion or transform</div>
-                        <div class="tool-code-line">GET /api/jobs/:id  - progress, status, retry and failure details</div>
-                        <div class="tool-code-line">GET /api/download/:token  - short-lived signed delivery</div>
-                        <div class="tool-code-line">POST /api/resumes  - create resume with versioned sections</div>
-                        <div class="tool-code-line">POST /api/resumes/:id/export  - PDF, JSON or plain text output</div>
-                        <div class="tool-code-line">GET /api/admin/metrics  - uploads, failures, worker load, suspicious activity</div>
-                    </div>
-                </article>
-            </div>
-
-            <div class="tool-bottom-grid">
-                <article class="tool-panel reveal">
-                    <div class="tool-kicker" data-i18n="tools_data_kicker">Data Model</div>
-                    <h3 class="tool-section-title" data-i18n="tools_data_title">
-                        Resume versiyonlama, islemler ve indirmeler icin schema omurgasi
-                    </h3>
-                    <div class="tool-chip-list" data-i18n-html="tools_data_items">
-                        <span class="tool-chip">users</span>
-                        <span class="tool-chip">sessions</span>
-                        <span class="tool-chip">roles</span>
-                        <span class="tool-chip">uploaded_files</span>
-                        <span class="tool-chip">processing_jobs</span>
-                        <span class="tool-chip">job_results</span>
-                        <span class="tool-chip">resumes</span>
-                        <span class="tool-chip">resume_versions</span>
-                        <span class="tool-chip">resume_sections</span>
-                        <span class="tool-chip">ai_generations</span>
-                        <span class="tool-chip">download_tokens</span>
-                        <span class="tool-chip">audit_logs</span>
-                        <span class="tool-chip">subscriptions</span>
-                        <span class="tool-chip">invoices</span>
-                    </div>
-                </article>
-
-                <article class="tool-panel reveal">
-                    <div class="tool-kicker" data-i18n="tools_delivery_kicker">Delivery Blueprint</div>
-                    <h3 class="tool-section-title" data-i18n="tools_delivery_title">
-                        Uretim odakli MVP temelinde cikan ana parcalar
-                    </h3>
-                    <div class="tool-stat-grid" data-i18n-html="tools_delivery_stats">
-                        <div class="tool-stat">
-                            <strong>Frontend</strong>
-                            <span>Hero, tool grid, CV workspace, dark mode ve mobil uyumlu akislar.</span>
-                        </div>
-                        <div class="tool-stat">
-                            <strong>API</strong>
-                            <span>Auth, file lifecycle, jobs, resume CRUD, admin metrics ve audit endpointleri.</span>
-                        </div>
-                        <div class="tool-stat">
-                            <strong>Workers</strong>
-                            <span>pdf-lib, qpdf, Ghostscript, LibreOffice ve ImageMagick icin izole is katmani.</span>
-                        </div>
-                        <div class="tool-stat">
-                            <strong>Ops</strong>
-                            <span>Docker, env templates, cleanup cron, CI/CD ve temel test kapsami.</span>
-                        </div>
-                    </div>
-                    <p class="tool-copy tool-copy--tight" data-i18n="tools_delivery_body">
-                        Monorepo yapisi, docker-compose, .env.example, seed veri, sample CV template'leri ve security
-                        notlariyla toy demo degil, ciddi bir temel hedeflenir.
-                    </p>
-                </article>
-            </div>
-        </div>
-    </section>
-
     <!-- ════════════ FOOTER / CONTACT ════════════ -->
     <footer id="footer">
         <div style="max-width:1400px; margin:0 auto;">
             <div class="reveal">
-                <div class="section-label" data-i18n="footer_label">// 04 — Ağ & İletişim</div>
+                <div class="section-label" data-i18n="footer_label">// 03 — Ağ & İletişim</div>
                 <h2 class="footer-headline" data-i18n-html="footer_headline">Birlikte<br /><span>Yapalım.</span></h2>
             </div>
 
@@ -1836,7 +1347,6 @@
             tr: {
                 nav_vision: 'Vizyon',
                 nav_projects: 'Projeler',
-                nav_tools: 'Tools',
                 nav_contact: 'İletişim',
                 page_title: 'Fahri Aybars Barut — Bilgisayar Mühendisi',
                 hero_tag: 'Bilgisayar Mühendisi ve VR Unity Proje Geliştiricisi',
@@ -1866,37 +1376,8 @@
                 p6_desc: 'Chris Titus Tech\u2019in popüler Windows optimizasyon aracının Türkçe yerelleştirme fork\u2019u. Tam Türkçe dil desteği.',
                 p7_tag: 'AI · Legal RAG',
                 p7_desc: 'Llama3 tabanlı, sıfır halüsinasyon hedefli hukuk asistanı. Türkiye Cumhuriyeti Anayasası üzerine özelleşmiş hibrit arama mekanizması.',
-                tools_label: '// 03 - Tools',
-                tools_title: 'Guvenli Dokuman Platformu',
-                tools_intro: 'PDF operasyonlari ve AI destekli CV uretimi icin, gercek bir startup MVPsine yakisan guvenlik, gizlilik, worker izolasyonu ve net servis sinirlariyla tasarlanmis bir urun vitrini.',
-                tools_spotlight_kicker: 'Platform Scope',
-                tools_spotlight_title: 'PDF islemleri, AI resume olusturma ve privacy-first pipeline ayni catida.',
-                tools_spotlight_body: 'Next.js tabanli arayuz, TypeScript API, queue destekli izole workerlar, signed URL indirmeleri ve retention politikasi ile ciddi bir SaaS temeli.',
-                tools_spotlight_stack: `<span class="tool-pill">Next.js App Router</span><span class="tool-pill">TypeScript strict</span><span class="tool-pill">Tailwind UI</span><span class="tool-pill">NestJS / Express</span><span class="tool-pill">BullMQ + Redis</span><span class="tool-pill">PostgreSQL</span><span class="tool-pill">S3 storage</span><span class="tool-pill">Sandbox workers</span>`,
-                tools_arch_kicker: 'Job Architecture',
-                tools_arch_title: 'Yukle, izole ortamda isle, kisa omurle teslim et.',
-                tools_arch_flow: `<div class="tool-flow-step"><span>1</span><p>Upload asamasinda MIME, extension, magic byte ve dosya limiti kontrolleri uygulanir.</p></div><div class="tool-flow-step"><span>2</span><p>Dosya gecici izole storagea tasinir; orijinal dosya adi asla guvenilir kabul edilmez.</p></div><div class="tool-flow-step"><span>3</span><p>API, is tanimini BullMQ sirasina yollar; worker sadece kendi job klasorunde calisir.</p></div><div class="tool-flow-step"><span>4</span><p>Sonuc, yalnizca kisa omurlu signed URL ile indirilir; sonra cleanup job kalintilari siler.</p></div>`,
-                tools_pdf_kicker: 'PDF Tools',
-                tools_pdf_title: 'Cekirdek belge islemleri',
-                tools_pdf_items: `<span class="tool-chip">Merge PDF</span><span class="tool-chip">Split PDF</span><span class="tool-chip">Compress PDF</span><span class="tool-chip">Rotate PDF</span><span class="tool-chip">Reorder Pages</span><span class="tool-chip">Delete Pages</span><span class="tool-chip">Extract Pages</span><span class="tool-chip">Watermark</span><span class="tool-chip">Page Numbers</span><span class="tool-chip">Protect PDF</span><span class="tool-chip">Unlock PDF</span><span class="tool-chip">Repair PDF</span><span class="tool-chip">PDF to DOCX</span><span class="tool-chip">PDF to PPTX</span><span class="tool-chip">PDF to XLSX</span><span class="tool-chip">PDF to JPG/PNG</span><span class="tool-chip">JPG/PNG to PDF</span><span class="tool-chip">Word to PDF</span><span class="tool-chip">PowerPoint to PDF</span><span class="tool-chip">Excel to PDF</span>`,
-                tools_resume_kicker: 'AI CV Builder',
-                tools_resume_title: 'ATS ve creative modlu resume editor',
-                tools_resume_items: `<div class="tool-list-item">Step wizard ve tek sayfa editor modu ile hizli duzenleme akisi.</div><div class="tool-list-item">Live preview, drag and drop section siralama, template switcher ve autosave.</div><div class="tool-list-item">Summary, experience bullet, skills formatting ve cover letter icin AI destek aksiyonlari.</div><div class="tool-list-item">PDF, JSON ve plain text export; lokal draft ve hesap bazli kayit destegi.</div><div class="tool-list-item">Cok dilli icerik, photo upload/crop ve LinkedIn import icin hazir entegrasyon boslugu.</div>`,
-                tools_security_kicker: 'Security + Privacy',
-                tools_security_title: 'Upload, auth ve retention katmanlari ilk gunden sert.',
-                tools_security_items: `<div class="tool-list-item">MIME, extension, magic byte, page count ve conversion limit kontrolu.</div><div class="tool-list-item">Antivirus / ClamAV plug-in mimarisi ve supheli dosyalar icin quarantine akisi.</div><div class="tool-list-item">Non-root worker, read-only filesystem, per-job temp klasor ve outbound network kapatma.</div><div class="tool-list-item">Argon2 veya bcrypt ile auth; secure cookie, CSRF, RBAC ve ownership kontrolu.</div><div class="tool-list-item">Signed download link, audit log, anomaly hook ve GDPR farkindaligi olan retention kurallari.</div>`,
-                tools_api_kicker: 'API + Ops',
-                tools_api_title: 'REST, queue ve observability tek yuzde toplanir.',
-                tools_api_items: `<div class="tool-code-line">POST /api/files/upload  - validation + quarantine-aware upload</div><div class="tool-code-line">POST /api/jobs  - enqueue secure PDF conversion or transform</div><div class="tool-code-line">GET /api/jobs/:id  - progress, status, retry and failure details</div><div class="tool-code-line">GET /api/download/:token  - short-lived signed delivery</div><div class="tool-code-line">POST /api/resumes  - create resume with versioned sections</div><div class="tool-code-line">POST /api/resumes/:id/export  - PDF, JSON or plain text output</div><div class="tool-code-line">GET /api/admin/metrics  - uploads, failures, worker load, suspicious activity</div>`,
-                tools_data_kicker: 'Data Model',
-                tools_data_title: 'Resume versiyonlama, islemler ve indirmeler icin schema omurgasi',
-                tools_data_items: `<span class="tool-chip">users</span><span class="tool-chip">sessions</span><span class="tool-chip">roles</span><span class="tool-chip">uploaded_files</span><span class="tool-chip">processing_jobs</span><span class="tool-chip">job_results</span><span class="tool-chip">resumes</span><span class="tool-chip">resume_versions</span><span class="tool-chip">resume_sections</span><span class="tool-chip">ai_generations</span><span class="tool-chip">download_tokens</span><span class="tool-chip">audit_logs</span><span class="tool-chip">subscriptions</span><span class="tool-chip">invoices</span>`,
-                tools_delivery_kicker: 'Delivery Blueprint',
-                tools_delivery_title: 'Uretim odakli MVP temelinde cikan ana parcalar',
-                tools_delivery_stats: `<div class="tool-stat"><strong>Frontend</strong><span>Hero, tool grid, CV workspace, dark mode ve mobil uyumlu akislar.</span></div><div class="tool-stat"><strong>API</strong><span>Auth, file lifecycle, jobs, resume CRUD, admin metrics ve audit endpointleri.</span></div><div class="tool-stat"><strong>Workers</strong><span>pdf-lib, qpdf, Ghostscript, LibreOffice ve ImageMagick icin izole is katmani.</span></div><div class="tool-stat"><strong>Ops</strong><span>Docker, env templates, cleanup cron, CI/CD ve temel test kapsami.</span></div>`,
-                tools_delivery_body: 'Monorepo yapisi, docker-compose, .env.example, seed veri, sample CV templateleri ve security notlariyla toy demo degil, ciddi bir temel hedeflenir.',
                 view_on_github: 'GitHub\'da İncele',
-                footer_label: '// 04 — Ağ & İletişim',
+                footer_label: '// 03 — Ağ & İletişim',
                 footer_headline: 'Birlikte<br/><span>Yapalım.</span>',
                 footer_col_code: 'Kod Platformu',
                 footer_col_network: 'Profesyonel Ağ',
@@ -1908,7 +1389,6 @@
             en: {
                 nav_vision: 'Vision',
                 nav_projects: 'Projects',
-                nav_tools: 'Tools',
                 nav_contact: 'Contact',
                 page_title: 'Fahri Aybars Barut — Computer Engineer',
                 hero_tag: 'Computer Science Degree And VR Unity Developer',
@@ -1938,37 +1418,8 @@
                 p6_desc: 'A Turkish-language fork of Chris Titus Tech\'s popular Windows utility, providing full Turkish localization.',
                 p7_tag: 'AI · Legal RAG',
                 p7_desc: 'Llama3-based, zero-hallucination focused legal assistant. Hybrid search mechanism specialized on the Turkish Constitution.',
-                tools_label: '// 03 - Tools',
-                tools_title: 'Secure Document Platform',
-                tools_intro: 'A production-minded showcase for PDF operations and AI assisted CV generation, shaped around security, privacy, worker isolation, and clean service boundaries.',
-                tools_spotlight_kicker: 'Platform Scope',
-                tools_spotlight_title: 'PDF workflows, AI resume generation, and privacy first processing in one platform.',
-                tools_spotlight_body: 'A Next.js interface, TypeScript API, queue driven isolated workers, signed downloads, and retention controls combine into a serious SaaS foundation.',
-                tools_spotlight_stack: `<span class="tool-pill">Next.js App Router</span><span class="tool-pill">TypeScript strict</span><span class="tool-pill">Tailwind UI</span><span class="tool-pill">NestJS / Express</span><span class="tool-pill">BullMQ + Redis</span><span class="tool-pill">PostgreSQL</span><span class="tool-pill">S3 storage</span><span class="tool-pill">Sandbox workers</span>`,
-                tools_arch_kicker: 'Job Architecture',
-                tools_arch_title: 'Upload once, process in isolation, deliver with a short TTL.',
-                tools_arch_flow: `<div class="tool-flow-step"><span>1</span><p>Uploads pass MIME, extension, magic byte, page count, and size validation before they enter the pipeline.</p></div><div class="tool-flow-step"><span>2</span><p>Files are renamed, stored in temporary isolated storage, and never trusted by client supplied filename.</p></div><div class="tool-flow-step"><span>3</span><p>The API enqueues work into BullMQ while workers operate inside job scoped directories with sandbox rules.</p></div><div class="tool-flow-step"><span>4</span><p>Results are served only through short lived signed URLs, then removed by cleanup jobs after TTL expiry.</p></div>`,
-                tools_pdf_kicker: 'PDF Tools',
-                tools_pdf_title: 'Core document operations',
-                tools_pdf_items: `<span class="tool-chip">Merge PDF</span><span class="tool-chip">Split PDF</span><span class="tool-chip">Compress PDF</span><span class="tool-chip">Rotate PDF</span><span class="tool-chip">Reorder Pages</span><span class="tool-chip">Delete Pages</span><span class="tool-chip">Extract Pages</span><span class="tool-chip">Watermark</span><span class="tool-chip">Page Numbers</span><span class="tool-chip">Protect PDF</span><span class="tool-chip">Unlock PDF</span><span class="tool-chip">Repair PDF</span><span class="tool-chip">PDF to DOCX</span><span class="tool-chip">PDF to PPTX</span><span class="tool-chip">PDF to XLSX</span><span class="tool-chip">PDF to JPG/PNG</span><span class="tool-chip">JPG/PNG to PDF</span><span class="tool-chip">Word to PDF</span><span class="tool-chip">PowerPoint to PDF</span><span class="tool-chip">Excel to PDF</span>`,
-                tools_resume_kicker: 'AI CV Builder',
-                tools_resume_title: 'Resume editor with ATS and creative modes',
-                tools_resume_items: `<div class="tool-list-item">Step based wizard and single page editor mode for fast authoring.</div><div class="tool-list-item">Live preview, drag and drop section ordering, template switching, and autosave.</div><div class="tool-list-item">AI actions for summaries, work bullets, skill formatting, and tailored cover letters.</div><div class="tool-list-item">PDF, JSON, and plain text export with local drafts and account backed saves.</div><div class="tool-list-item">Multi language content, photo upload and crop, plus placeholder architecture for LinkedIn import.</div>`,
-                tools_security_kicker: 'Security + Privacy',
-                tools_security_title: 'Upload, auth, and retention defenses are first class from day one.',
-                tools_security_items: `<div class="tool-list-item">MIME, extension, magic byte, page count, and conversion specific limit enforcement.</div><div class="tool-list-item">Antivirus / ClamAV scanner integration and quarantine flow for suspicious uploads.</div><div class="tool-list-item">Non root workers, read only filesystem, per job temp directories, and no outbound network by default.</div><div class="tool-list-item">Argon2 or bcrypt auth, secure cookies, CSRF protection, RBAC, and ownership checks.</div><div class="tool-list-item">Signed download links, audit logging, anomaly hooks, and GDPR aware retention controls.</div>`,
-                tools_api_kicker: 'API + Ops',
-                tools_api_title: 'REST, queues, and observability sit on the same deliberate surface.',
-                tools_api_items: `<div class="tool-code-line">POST /api/files/upload  - validation + quarantine-aware upload</div><div class="tool-code-line">POST /api/jobs  - enqueue secure PDF conversion or transform</div><div class="tool-code-line">GET /api/jobs/:id  - progress, status, retry and failure details</div><div class="tool-code-line">GET /api/download/:token  - short-lived signed delivery</div><div class="tool-code-line">POST /api/resumes  - create resume with versioned sections</div><div class="tool-code-line">POST /api/resumes/:id/export  - PDF, JSON or plain text output</div><div class="tool-code-line">GET /api/admin/metrics  - uploads, failures, worker load, suspicious activity</div>`,
-                tools_data_kicker: 'Data Model',
-                tools_data_title: 'Schema backbone for versioned resumes, jobs, and downloads',
-                tools_data_items: `<span class="tool-chip">users</span><span class="tool-chip">sessions</span><span class="tool-chip">roles</span><span class="tool-chip">uploaded_files</span><span class="tool-chip">processing_jobs</span><span class="tool-chip">job_results</span><span class="tool-chip">resumes</span><span class="tool-chip">resume_versions</span><span class="tool-chip">resume_sections</span><span class="tool-chip">ai_generations</span><span class="tool-chip">download_tokens</span><span class="tool-chip">audit_logs</span><span class="tool-chip">subscriptions</span><span class="tool-chip">invoices</span>`,
-                tools_delivery_kicker: 'Delivery Blueprint',
-                tools_delivery_title: 'What ships in the production minded MVP foundation',
-                tools_delivery_stats: `<div class="tool-stat"><strong>Frontend</strong><span>Hero, tool grid, CV workspace, dark mode, and mobile first flows.</span></div><div class="tool-stat"><strong>API</strong><span>Auth, file lifecycle, jobs, resume CRUD, admin metrics, and audit endpoints.</span></div><div class="tool-stat"><strong>Workers</strong><span>Isolated execution layer for pdf-lib, qpdf, Ghostscript, LibreOffice, and ImageMagick.</span></div><div class="tool-stat"><strong>Ops</strong><span>Docker, env templates, cleanup cron, CI/CD examples, and baseline testing coverage.</span></div>`,
-                tools_delivery_body: 'The section frames a monorepo, docker-compose, .env.example, seed data, sample CV templates, and security notes as a serious startup style foundation rather than a toy demo.',
                 view_on_github: 'View on GitHub',
-                footer_label: '// 04 — Network & Contact',
+                footer_label: '// 03 — Network & Contact',
                 footer_headline: "Let's<br/><span>Build Together.</span>",
                 footer_col_code: 'Code Platform',
                 footer_col_network: 'Professional Network',
@@ -2007,8 +1458,6 @@
                 if (dict[key] !== undefined) el.innerHTML = dict[key];
             });
         }
-
-        setLang(currentLang);
 
         // ── Mobile menu toggle ──
         function toggleMobileMenu() {
