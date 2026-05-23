@@ -343,21 +343,9 @@
 
                     {/* Section 2 - Capabilities */}
                     <section className="relative min-h-screen flex flex-col overflow-hidden px-8 md:px-16 lg:px-20 pt-24 pb-10">
-                        <motion.img 
-                            src="vr_glass.png" 
-                            alt="Abstract Glass VR Headset" 
-                            className="absolute -inset-[5%] w-[110%] h-[110%] object-cover z-0 opacity-80"
-                            animate={{ 
-                                y: [0, -25, 0], 
-                                x: [0, -15, 0],
-                                rotate: [0, 1, -0.5, 0],
-                                scale: [1, 1.04, 1]
-                            }}
-                            transition={{ 
-                                duration: 18, 
-                                repeat: Infinity, 
-                                ease: "easeInOut" 
-                            }}
+                        <FadingVideo 
+                            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260418_094631_d30ab262-45ee-4b7d-99f3-5d5848c8ef13.mp4" 
+                            className="absolute inset-0 w-full h-full object-cover z-0"
                         />
 
                         <div className="relative z-10 flex flex-col min-h-[calc(100vh-8.5rem)]">
