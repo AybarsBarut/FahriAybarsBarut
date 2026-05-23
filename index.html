@@ -236,13 +236,14 @@
         const App = () => {
             return (
                 <div className="bg-black min-h-screen text-white font-body selection:bg-white/30">
+                    {/* Global Fixed Background */}
+                    <FadingVideo 
+                        src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260418_080021_d598092b-c4c2-4e53-8e46-94cf9064cd50.mp4" 
+                        className="fixed inset-0 w-full h-full object-cover z-0"
+                    />
+
                     {/* Section 1 - Hero */}
                     <section className="relative min-h-screen flex flex-col overflow-hidden">
-                        <FadingVideo 
-                            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260418_080021_d598092b-c4c2-4e53-8e46-94cf9064cd50.mp4" 
-                            className="absolute left-1/2 top-0 -translate-x-1/2 object-cover object-top z-0"
-                            style={{ width: "120%", height: "120%" }}
-                        />
 
                         {/* Navbar */}
                         <nav className="fixed top-4 left-0 right-0 z-50 px-8 lg:px-16 flex justify-between items-center pointer-events-none">
@@ -343,10 +344,6 @@
 
                     {/* Section 2 - Capabilities */}
                     <section className="relative min-h-screen flex flex-col overflow-hidden px-8 md:px-16 lg:px-20 pt-24 pb-10">
-                        <FadingVideo 
-                            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260418_094631_d30ab262-45ee-4b7d-99f3-5d5848c8ef13.mp4" 
-                            className="absolute inset-0 w-full h-full object-cover z-0"
-                        />
 
                         <div className="relative z-10 flex flex-col min-h-[calc(100vh-8.5rem)]">
                             <div className="mb-auto">
@@ -425,10 +422,6 @@
 
                     {/* Section 3 - Certificates */}
                     <section className="relative min-h-screen flex flex-col overflow-hidden px-8 md:px-16 lg:px-20 pt-24 pb-10" id="certificates">
-                        <FadingVideo 
-                            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260418_080021_d598092b-c4c2-4e53-8e46-94cf9064cd50.mp4" 
-                            className="absolute inset-0 w-full h-full object-cover z-0 opacity-40 mix-blend-screen"
-                        />
 
                         <div className="relative z-10 flex flex-col min-h-[calc(100vh-8.5rem)]">
                             <div className="mb-auto">
