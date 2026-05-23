@@ -1,30 +1,17 @@
 <!DOCTYPE html>
-<html lang="tr" class="scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aybars Barut / Archura</title>
+    <title>Space Voyage</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-    
-    <!-- React & ReactDOM -->
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    
-    <!-- Babel for JSX -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    
-    <!-- Framer Motion -->
-    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Icons (Inline SVG) -->
-    
     <script>
         tailwind.config = {
             theme: {
@@ -34,49 +21,54 @@
                         body: ['"Barlow"', 'sans-serif'],
                     },
                     borderRadius: {
-                        'none': '0',
-                        'sm': '0.125rem',
-                        DEFAULT: '9999px', // Override default to pill-shaped
-                        'md': '9999px',
-                        'lg': '9999px',
-                        'xl': '9999px',
-                        '2xl': '9999px',
-                        '3xl': '9999px',
-                        'full': '9999px',
+                        DEFAULT: '9999px',
                     }
                 }
             }
         }
     </script>
     
+    <!-- React & ReactDOM -->
+    <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+    
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+    
+    <!-- Framer Motion -->
+    <script src="https://unpkg.com/framer-motion@11.11.17/dist/framer-motion.js"></script>
+    <script>window.Motion = window.FramerMotion;</script>
+    
     <style>
         body {
             background-color: #000;
-            color: #fff;
             margin: 0;
-            font-family: 'Barlow', sans-serif;
             overflow-x: hidden;
         }
 
         .liquid-glass {
-            background: rgba(255, 255, 255, 0.01);
+            background: rgba(255,255,255,0.01);
             background-blend-mode: luminosity;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15), 
-                        inset 0 -1px 1px rgba(0, 0, 0, 0.2);
-            border-radius: inherit;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border: none;
+            box-shadow: inset 0 1px 1px rgba(255,255,255,0.1);
             position: relative;
             overflow: hidden;
         }
 
         .liquid-glass::before {
-            content: '';
-            position: absolute;
-            inset: 0;
+            content: "";
+            position: absolute; inset: 0;
             border-radius: inherit;
-            padding: 1px;
-            background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.0) 50%, rgba(255,255,255,0.1) 100%);
+            padding: 1.4px;
+            background: linear-gradient(180deg,
+                rgba(255,255,255,0.45) 0%,
+                rgba(255,255,255,0.15) 20%,
+                rgba(255,255,255,0) 40%,
+                rgba(255,255,255,0) 60%,
+                rgba(255,255,255,0.15) 80%,
+                rgba(255,255,255,0.45) 100%);
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
@@ -84,63 +76,63 @@
         }
 
         .liquid-glass-strong {
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255,255,255,0.01);
             background-blend-mode: luminosity;
             backdrop-filter: blur(50px);
             -webkit-backdrop-filter: blur(50px);
-            box-shadow: inset 0 2px 2px rgba(255, 255, 255, 0.2), 
-                        inset 0 -2px 2px rgba(0, 0, 0, 0.4),
-                        0 8px 32px rgba(0, 0, 0, 0.4);
-            border-radius: inherit;
+            border: none;
+            box-shadow: 4px 4px 4px rgba(0,0,0,0.05), inset 0 1px 1px rgba(255,255,255,0.15);
             position: relative;
             overflow: hidden;
         }
 
         .liquid-glass-strong::before {
-            content: '';
-            position: absolute;
-            inset: 0;
+            content: "";
+            position: absolute; inset: 0;
             border-radius: inherit;
-            padding: 1px;
-            background: linear-gradient(135deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.2) 100%);
+            padding: 1.4px;
+            background: linear-gradient(180deg,
+                rgba(255,255,255,0.5) 0%,
+                rgba(255,255,255,0.2) 20%,
+                rgba(255,255,255,0) 40%,
+                rgba(255,255,255,0) 60%,
+                rgba(255,255,255,0.2) 80%,
+                rgba(255,255,255,0.5) 100%);
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
             pointer-events: none;
         }
-        
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
     </style>
 </head>
 <body>
     <div id="root"></div>
-    <script type="text/babel">
-        const { useState, useEffect, useRef } = React;
-        const { motion, useInView, AnimatePresence } = window.Motion;
 
-        // Components
-        const Icons = {
-            ArrowUpRight: (props) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>,
-            ExternalLink: (props) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>,
-            Code: (props) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>,
-            Cpu: (props) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>,
-            Database: (props) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>,
-            Gauge: (props) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"></path><path d="M12 9h.01"></path><path d="M11 12h1v4h1"></path></svg>,
-            Package: (props) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>,
-            Mail: (props) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>,
-            Github: (props) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>,
-            Linkedin: (props) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>,
+    <script type="text/babel">
+        // Suppress Framer Motion list keys dev warnings
+        const originalError = console.error;
+        console.error = (...args) => {
+            if (args[0] && typeof args[0] === 'string' && args[0].includes('Each child in a list should have a unique "key" prop')) return;
+            originalError.call(console, ...args);
         };
-        const { ArrowUpRight, ExternalLink, Code, Cpu, Database, Gauge, Package, Mail, Github, Linkedin } = Icons;
-        const FadingVideo = ({ src, fallback }) => {
+
+        const { useState, useEffect, useRef } = React;
+        const { motion, useInView } = window.Motion;
+
+        const Icons = {
+            ArrowUpRight: (props) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>,
+            Play: (props) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" {...props}><polygon points="6 4 20 12 6 20 6 4" /></svg>,
+            AIScenery: (props) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" {...props}><path d="M5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h14q.825 0 1.413.588T21 5v14q0 .825-.587 1.413T19 21H5Zm1-4h12l-3.75-5-3 4L9 13l-3 4Z" /></svg>,
+            BatchProduction: (props) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" {...props}><path d="M4 6.47 5.76 10H20v8H4V6.47M22 4h-4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.89-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4Z" /></svg>,
+            SmartLighting: (props) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" {...props}><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1Zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7Z" /></svg>,
+            Clock: (props) => <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>,
+            Globe: (props) => <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+        };
+
+        const FadingVideo = ({ src, className, style }) => {
             const videoRef = useRef(null);
             const fadeRafRef = useRef(null);
+            const fadingOutRef = useRef(false);
 
             const FADE_MS = 500;
             const FADE_OUT_LEAD = 0.55;
@@ -157,11 +149,7 @@
                     const animate = (currentTime) => {
                         const elapsed = currentTime - startTime;
                         const progress = Math.min(elapsed / duration, 1);
-                        
-                        // easeOut
-                        const easedProgress = 1 - Math.pow(1 - progress, 2);
-                        
-                        video.style.opacity = startOpacity + (targetOpacity - startOpacity) * easedProgress;
+                        video.style.opacity = startOpacity + (targetOpacity - startOpacity) * progress;
 
                         if (progress < 1) {
                             fadeRafRef.current = requestAnimationFrame(animate);
@@ -172,12 +160,13 @@
 
                 const handleLoadedData = () => {
                     video.style.opacity = '0';
-                    video.play().catch(e => console.warn("Video autoplay prevented:", e));
+                    video.play().catch(e => console.warn("Autoplay prevented:", e));
                     fadeTo(1, FADE_MS);
                 };
 
                 const handleTimeUpdate = () => {
-                    if (video.duration - video.currentTime <= FADE_OUT_LEAD) {
+                    if (!fadingOutRef.current && video.duration > 0 && (video.duration - video.currentTime) <= FADE_OUT_LEAD) {
+                        fadingOutRef.current = true;
                         fadeTo(0, FADE_MS);
                     }
                 };
@@ -186,7 +175,8 @@
                     video.style.opacity = '0';
                     setTimeout(() => {
                         video.currentTime = 0;
-                        video.play().catch(e => console.warn("Video replay prevented:", e));
+                        video.play().catch(e => console.warn("Replay prevented:", e));
+                        fadingOutRef.current = false;
                         fadeTo(1, FADE_MS);
                     }, 100);
                 };
@@ -204,21 +194,16 @@
             }, []);
 
             return (
-                <div className="absolute inset-0 w-full h-full z-0 overflow-hidden bg-black">
-                    {fallback && <img src={fallback} alt="" className="absolute inset-0 w-full h-full object-cover opacity-30" />}
-                    <video
-                        ref={videoRef}
-                        src={src}
-                        className="absolute inset-0 w-full h-full object-cover mix-blend-screen"
-                        style={{ opacity: 0 }}
-                        autoPlay
-                        muted
-                        playsInline
-                        preload="auto"
-                    />
-                    {/* Gradient overlay to ensure text contrast */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80"></div>
-                </div>
+                <video
+                    ref={videoRef}
+                    src={src}
+                    className={className}
+                    style={{ ...style, opacity: 0 }}
+                    autoPlay
+                    muted
+                    playsInline
+                    preload="auto"
+                />
             );
         };
 
@@ -228,7 +213,7 @@
             const words = text.split(" ");
 
             return (
-                <div ref={ref} className="flex flex-wrap justify-center gap-y-[0.1em]">
+                <p ref={ref} className="text-6xl md:text-7xl lg:text-[5.5rem] font-heading italic text-white leading-[0.8] max-w-2xl justify-center tracking-[-4px] flex flex-wrap row-gap-[0.1em]">
                     {words.map((word, i) => (
                         <motion.span
                             key={i}
@@ -238,398 +223,204 @@
                                 duration: 0.7,
                                 times: [0, 0.5, 1],
                                 ease: "easeOut",
-                                delay: i * 0.1
+                                delay: (i * 100) / 1000
                             }}
-                            className="mr-[0.28em] font-heading text-5xl md:text-7xl lg:text-8xl italic font-normal tracking-tight"
+                            style={{ display: "inline-block", marginRight: "0.28em" }}
                         >
                             {word}
                         </motion.span>
                     ))}
-                </div>
+                </p>
             );
         };
-
-        const LiquidGlassCard = ({ children, className = "", delay = 0 }) => {
-            const ref = useRef(null);
-            const isInView = useInView(ref, { once: true, amount: 0.2 });
-
-            return (
-                <motion.div
-                    ref={ref}
-                    initial={{ filter: "blur(10px)", opacity: 0, y: 20 }}
-                    animate={isInView ? { filter: "blur(0px)", opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.8, delay, ease: "easeOut" }}
-                    className={`liquid-glass rounded-3xl p-6 md:p-8 ${className}`}
-                >
-                    {children}
-                </motion.div>
-            );
-        };
-
-        const Navbar = ({ lang, setLang, content }) => {
-            const [scrolled, setScrolled] = useState(false);
-
-            useEffect(() => {
-                const handleScroll = () => setScrolled(window.scrollY > 50);
-                window.addEventListener('scroll', handleScroll);
-                return () => window.removeEventListener('scroll', handleScroll);
-            }, []);
-
-            return (
-                <motion.nav 
-                    initial={{ y: -100, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="fixed top-4 left-0 right-0 z-50 px-4 md:px-8 lg:px-16 flex justify-between items-center pointer-events-none"
-                >
-                    {/* Logo */}
-                    <div className="w-12 h-12 liquid-glass rounded-full flex items-center justify-center pointer-events-auto shrink-0">
-                        <span className="font-heading italic text-2xl lowercase">a</span>
-                    </div>
-
-                    {/* Desktop Nav */}
-                    <div className={`hidden md:flex liquid-glass rounded-full px-6 py-3 items-center gap-6 transition-all duration-500 pointer-events-auto ${scrolled ? 'bg-white/5 shadow-xl' : ''}`}>
-                        <a href="#vision" className="text-sm font-medium hover:text-white/70 transition-colors">Vision</a>
-                        <a href="#capabilities" className="text-sm font-medium hover:text-white/70 transition-colors">Capabilities</a>
-                        <a href="#projects" className="text-sm font-medium hover:text-white/70 transition-colors">Projects</a>
-                        <a href="#contact" className="text-sm font-medium hover:text-white/70 transition-colors">Contact</a>
-                        <div className="w-px h-4 bg-white/20 mx-2"></div>
-                        <button onClick={() => setLang('tr')} className={`text-xs font-bold ${lang === 'tr' ? 'text-white' : 'text-white/50 hover:text-white'}`}>TR</button>
-                        <button onClick={() => setLang('en')} className={`text-xs font-bold ${lang === 'en' ? 'text-white' : 'text-white/50 hover:text-white'}`}>EN</button>
-                    </div>
-
-                    {/* CTA */}
-                    <div className="pointer-events-auto flex items-center gap-3 shrink-0">
-                        <a href="#contact" className="liquid-glass-strong rounded-full px-5 py-2.5 flex items-center gap-2 hover:bg-white/10 transition-colors group">
-                            <span className="text-sm font-semibold">{content.cta_work}</span>
-                            <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                        </a>
-                        {/* Mobile Lang Toggle */}
-                        <div className="md:hidden flex items-center gap-2 liquid-glass rounded-full px-3 py-2">
-                            <button onClick={() => setLang('tr')} className={`text-xs font-bold ${lang === 'tr' ? 'text-white' : 'text-white/50'}`}>TR</button>
-                            <span className="text-white/20">|</span>
-                            <button onClick={() => setLang('en')} className={`text-xs font-bold ${lang === 'en' ? 'text-white' : 'text-white/50'}`}>EN</button>
-                        </div>
-                    </div>
-                </motion.nav>
-            );
-        };
-
-        const SectionHeader = ({ kicker, title }) => (
-            <div className="mb-12 md:mb-16">
-                <span className="text-sm font-mono tracking-widest text-white/50 uppercase block mb-4">// {kicker}</span>
-                <h2 className="font-heading italic text-5xl md:text-7xl whitespace-pre-line leading-tight">
-                    {title}
-                </h2>
-            </div>
-        );
-
-        const ProjectCard = ({ project, index }) => (
-            <LiquidGlassCard delay={index * 0.15} className="flex flex-col h-full group">
-                <div className="flex justify-between items-start mb-6">
-                    <span className="liquid-glass text-xs font-mono px-3 py-1 text-white/70">{project.tag}</span>
-                    <a href={project.href} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full liquid-glass flex items-center justify-center hover:bg-white/10 transition-colors">
-                        <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                    </a>
-                </div>
-                <h3 className="font-heading italic text-3xl mb-3">{project.title}</h3>
-                <p className="text-white/60 text-sm leading-relaxed mb-6 flex-grow">{project.description}</p>
-                
-                {project.image && (
-                    <div className="w-full h-48 rounded-2xl overflow-hidden liquid-glass mt-auto">
-                        <img src={project.image} alt={project.title} className="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105" />
-                    </div>
-                )}
-            </LiquidGlassCard>
-        );
 
         const App = () => {
-            const [lang, setLang] = useState('en');
-
-            // Make Lucide icons available in JSX scope nicely
-            const renderIcon = (name, props = {}) => {
-                const IconComponent = Icons[name];
-                return IconComponent ? <IconComponent {...props} /> : null;
-            };
-
-            const content = {
-                tr: {
-                    hero_badge: "Archura",
-                    hero_badge_desc: "Unity · AI/RAG · Gerçek Zamanlı Sistemler",
-                    hero_headline: "Gerçek Zamanlı Sistemler ve Akıllı Geliştirici Araçları",
-                    hero_subheading: "Unity araçları, VR/XR tanılama sistemleri, yerel AI/RAG uygulamaları ve performans odaklı geliştirici yardımcıları inşa ediyorum.",
-                    cta_primary: "Projeleri İncele",
-                    cta_secondary: "GitHub'a Git",
-                    cta_work: "Birlikte Çalışalım",
-                    stat_1_title: "Unity Araçları",
-                    stat_1_desc: "Editör otomasyonu, profiling, asset iş akışları",
-                    stat_2_title: "AI/RAG",
-                    stat_2_desc: "Yerel, doküman temelli asistanlar ve hukuk teknolojileri",
-                    stat_3_title: "Gerçek Zamanlı",
-                    stat_3_desc: "C++, SDL2, OpenGL, sabit timestep sistemleri",
-                    capabilities_kicker: "Yetenekler",
-                    capabilities_title: "Üretenler\niçin araçlar",
-                    cap_1_title: "Unity Araçları",
-                    cap_1_tags: "Editör Araçları, Profiling, Asset Hijyeni, İş Akışı",
-                    cap_1_desc: "Proje temizliği, performans denetimi, sahne iş akışları ve üretime hazır editör otomasyonu için özel Unity araçları.",
-                    cap_2_title: "AI/RAG Sistemleri",
-                    cap_2_tags: "Yerel AI, FastAPI, ChromaDB, Legaltech",
-                    cap_2_desc: "Kaynak farkındalığına sahip yanıtlar, yerel çıkarım ve pratik legaltech deneyleri için tasarlanmış doküman temelli asistanlar ve bilgi getirme sistemleri.",
-                    cap_3_title: "Gerçek Zamanlı Mühendislik",
-                    cap_3_tags: "C++, SDL2, OpenGL, Simülasyon",
-                    cap_3_desc: "Sabit timestep döngülerine, render hatlarına, tanılama sistemlerine ve öngörülebilir performansa odaklanan oyun motoru deneyleri ve runtime sistemler.",
-                    projects_kicker: "Öne Çıkanlar",
-                    projects_title: "Seçili\nÇalışmalar",
-                    contact_kicker: "İletişim",
-                    contact_title: "Gönderime hazır\npratik araçlar inşa edelim.",
-                    contact_desc: "Unity araçları, AI/RAG, VR/XR tanılama, performans sistemleri ve geliştirici üretkenliği projelerine açığım."
-                },
-                en: {
-                    hero_badge: "Archura",
-                    hero_badge_desc: "Unity · AI/RAG · Real-Time Systems",
-                    hero_headline: "Engineering Real-Time Worlds and Intelligent Developer Tools",
-                    hero_subheading: "I build Unity tooling, VR/XR diagnostics, local AI/RAG systems, and performance-focused developer utilities for teams that need practical, reliable engineering.",
-                    cta_primary: "Explore Projects",
-                    cta_secondary: "View GitHub",
-                    cta_work: "Work With Me",
-                    stat_1_title: "Unity Tools",
-                    stat_1_desc: "Editor automation, profiling, asset workflows",
-                    stat_2_title: "AI/RAG",
-                    stat_2_desc: "Local-first legal and document-grounded assistants",
-                    stat_3_title: "Real-Time",
-                    stat_3_desc: "C++, SDL2, OpenGL, fixed timestep systems",
-                    capabilities_kicker: "Capabilities",
-                    capabilities_title: "Tools\nfor builders",
-                    cap_1_title: "Unity Tooling",
-                    cap_1_tags: "Editor Tools, Profiling, Asset Hygiene, Workflow",
-                    cap_1_desc: "Custom Unity tools for project cleanup, performance inspection, scene workflows, and production-ready editor automation.",
-                    cap_2_title: "AI/RAG Systems",
-                    cap_2_tags: "Local AI, FastAPI, ChromaDB, Legaltech",
-                    cap_2_desc: "Document-grounded assistants and retrieval systems designed for source-aware answers, local inference, and practical legaltech experiments.",
-                    cap_3_title: "Real-Time Engineering",
-                    cap_3_tags: "C++, SDL2, OpenGL, Simulation",
-                    cap_3_desc: "Game-engine experiments and runtime systems focused on fixed timestep loops, rendering pipelines, diagnostics, and predictable performance.",
-                    projects_kicker: "Featured",
-                    projects_title: "Selected\nProjects",
-                    contact_kicker: "Collaboration",
-                    contact_title: "Let's build\npractical tools that ship.",
-                    contact_desc: "Open to Unity tooling, AI/RAG, VR/XR diagnostics, performance systems, and developer productivity projects."
-                }
-            };
-
-            const c = content[lang];
-
-            const projects = [
-                {
-                    title: "Archura Game Engine",
-                    tag: "Engine / C++",
-                    description: lang === 'en' ? "A custom engine built on SDL2 with a fixed timestep loop and variable framerate render path." : "SDL2 üzerine kurulu, sabit timestep döngüsü ve değişken render hattına sahip özel oyun motoru.",
-                    href: "https://github.com/AybarsBarut/Archura-Game-Engine-SDL",
-                    image: "assets/archura_engine.png"
-                },
-                {
-                    title: "Unity Performance Profiler",
-                    tag: "Tool / Unity",
-                    description: lang === 'en' ? "A runtime profiler that brings FPS, CPU, and memory bottlenecks into a single debugging surface." : "FPS, CPU ve bellek darboğazlarını tek bir arayüzde toplayan runtime performans aracı.",
-                    href: "https://github.com/AybarsBarut/Unity-Performance-Profiler",
-                    image: "assets/performance_profiler.png"
-                },
-                {
-                    title: "AnayasalRAGai",
-                    tag: "AI / Python",
-                    description: lang === 'en' ? "A retrieval-driven legal assistant experiment aimed at domain-specific reliability." : "Belirli bir domaine odaklı, güvenilir yanıtlar hedefleyen bilgi getirme tabanlı hukuk asistanı.",
-                    href: "https://github.com/AybarsBarut/AnayasalRAGai",
-                    image: "assets/anayasal_rag_ai.png"
-                },
-                {
-                    title: "Turkiye Cumhuriyeti Anayasasi Dataset",
-                    tag: "Dataset",
-                    description: lang === 'en' ? "Structured dataset of the Turkish Constitution for NLP and LLM training tasks." : "NLP ve LLM eğitim görevleri için yapılandırılmış Türkiye Cumhuriyeti Anayasası veri seti.",
-                    href: "https://github.com/AybarsBarut",
-                    image: null
-                },
-                {
-                    title: "Unity Project Organizer",
-                    tag: "PowerShell",
-                    description: lang === 'en' ? "A PowerShell-based organizer that pushes Unity project folders toward a cleaner structure." : "Unity proje klasörlerini daha temiz bir yapıya zorlayan PowerShell tabanlı düzenleyici.",
-                    href: "https://github.com/AybarsBarut/Unity-Project-Organizer",
-                    image: "assets/hero_bg.png"
-                },
-                {
-                    title: "Unity Garbage Finder",
-                    tag: "Tool / Unity",
-                    description: lang === 'en' ? "A focused clean-up tool that helps identify and remove unused assets from Unity projects." : "Unity projelerinde kullanılmayan assetleri tespit edip kaldırmaya yardımcı odaklı temizlik aracı.",
-                    href: "https://github.com/AybarsBarut/Simple-Unity-Garbage-Finder",
-                    image: "assets/garbage_finder.png"
-                }
-            ];
-
             return (
-                <div className="min-h-screen bg-black text-white font-body selection:bg-white/30">
-                    <Navbar lang={lang} setLang={setLang} content={c} />
+                <div className="bg-black min-h-screen text-white font-body selection:bg-white/30">
+                    {/* Section 1 - Hero */}
+                    <section className="relative min-h-screen flex flex-col overflow-hidden">
+                        <FadingVideo 
+                            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260418_080021_d598092b-c4c2-4e53-8e46-94cf9064cd50.mp4" 
+                            className="absolute left-1/2 top-0 -translate-x-1/2 object-cover object-top z-0"
+                            style={{ width: "120%", height: "120%" }}
+                        />
 
-                    {/* Hero Section */}
-                    <section id="vision" className="relative min-h-screen flex flex-col justify-center px-6 md:px-16 pt-32 pb-20">
-                        {/* Fallback to abstract tech video placeholder */}
-                        <FadingVideo src="https://cdn.pixabay.com/video/2020/05/25/40141-424759082_large.mp4" fallback="assets/hero_bg.png" />
-                        
-                        <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col items-center text-center mt-10">
-                            <motion.div 
-                                initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-                                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                                transition={{ duration: 0.8, ease: "easeOut" }}
-                                className="liquid-glass rounded-full px-4 py-1.5 flex items-center gap-3 mb-8"
-                            >
-                                <span className="bg-white text-black text-xs font-bold px-2 py-0.5 rounded-full">{c.hero_badge}</span>
-                                <span className="text-sm font-medium text-white/80 pr-2">{c.hero_badge_desc}</span>
-                            </motion.div>
-
-                            <div className="max-w-4xl mb-8">
-                                <BlurText text={c.hero_headline} />
+                        {/* Navbar */}
+                        <nav className="fixed top-4 left-0 right-0 z-50 px-8 lg:px-16 flex justify-between items-center pointer-events-none">
+                            <div className="w-12 h-12 liquid-glass rounded-full flex items-center justify-center pointer-events-auto shrink-0">
+                                <span className="font-heading italic text-2xl lowercase text-white">a</span>
                             </div>
 
-                            <motion.p 
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
+                            <div className="hidden md:flex liquid-glass rounded-full p-1.5 items-center pointer-events-auto">
+                                <a href="#" className="px-3 py-2 text-sm font-medium text-white/90 hover:text-white transition-colors">Home</a>
+                                <a href="#" className="px-3 py-2 text-sm font-medium text-white/90 hover:text-white transition-colors">Voyages</a>
+                                <a href="#" className="px-3 py-2 text-sm font-medium text-white/90 hover:text-white transition-colors">Worlds</a>
+                                <a href="#" className="px-3 py-2 text-sm font-medium text-white/90 hover:text-white transition-colors">Innovation</a>
+                                <a href="#" className="px-3 py-2 text-sm font-medium text-white/90 hover:text-white transition-colors">Plan Launch</a>
+                                <button className="ml-1 bg-white text-black rounded-full px-4 py-2 text-sm font-medium flex items-center gap-1 hover:bg-white/90 transition-colors whitespace-nowrap">
+                                    Claim a Spot <Icons.ArrowUpRight className="w-4 h-4" />
+                                </button>
+                            </div>
+
+                            <div className="w-12 h-12 shrink-0 pointer-events-none"></div>
+                        </nav>
+
+                        {/* Hero Content */}
+                        <div className="relative z-10 flex-1 flex flex-col items-center justify-center pt-24 px-4 w-full">
+                            <motion.div 
+                                initial={{ filter: "blur(10px)", opacity: 0, y: 20 }}
+                                animate={{ filter: "blur(0px)", opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-                                className="text-lg md:text-xl text-white/60 max-w-2xl mb-12 font-medium leading-relaxed"
+                                className="liquid-glass rounded-full flex items-center mb-6"
+                                style={{ padding: "0.25rem 0.25rem 0.25rem 0.25rem" }}
                             >
-                                {c.hero_subheading}
+                                <span className="bg-white text-black px-3 py-1 text-xs font-semibold rounded-full mr-3">New</span>
+                                <span className="text-sm text-white/90 pr-4">Maiden Crewed Voyage to Mars Arrives 2026</span>
+                            </motion.div>
+
+                            <BlurText text="Venture Past Our Sky Across the Universe" />
+
+                            <motion.p 
+                                initial={{ filter: "blur(10px)", opacity: 0, y: 20 }}
+                                animate={{ filter: "blur(0px)", opacity: 1, y: 0 }}
+                                transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
+                                className="mt-4 text-sm md:text-base text-white max-w-2xl font-light leading-tight text-center"
+                            >
+                                Discover the universe in ways once unimaginable. Our pioneering vessels and breakthrough engineering bring deep-space exploration within reach—secure and extraordinary.
                             </motion.p>
 
                             <motion.div 
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-                                className="flex flex-col sm:flex-row items-center gap-6 mb-24"
+                                initial={{ filter: "blur(10px)", opacity: 0, y: 20 }}
+                                animate={{ filter: "blur(0px)", opacity: 1, y: 0 }}
+                                transition={{ duration: 0.8, delay: 1.1, ease: "easeOut" }}
+                                className="flex items-center gap-6 mt-6"
                             >
-                                <a href="#projects" className="liquid-glass-strong rounded-full px-8 py-4 flex items-center gap-3 hover:bg-white/10 transition-all group">
-                                    <span className="font-semibold">{c.cta_primary}</span>
-                                    <ArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                                </a>
-                                <a href="https://github.com/AybarsBarut" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-white/70 hover:text-white transition-colors group px-4 py-2">
-                                    <span className="font-semibold">{c.cta_secondary}</span>
-                                    <ExternalLink size={18} className="group-hover:scale-110 transition-transform" />
-                                </a>
+                                <button className="liquid-glass-strong rounded-full px-5 py-2.5 text-sm font-medium text-white flex items-center gap-2 hover:bg-white/10 transition-colors">
+                                    Start Your Voyage <Icons.ArrowUpRight className="h-5 w-5" />
+                                </button>
+                                <button className="flex items-center gap-2 text-white/80 hover:text-white transition-colors text-sm font-medium">
+                                    View Liftoff <Icons.Play className="h-4 w-4" />
+                                </button>
                             </motion.div>
-
-                            {/* Stats / Focus Cards */}
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl">
-                                {[
-                                    { title: c.stat_1_title, desc: c.stat_1_desc, icon: "Code" },
-                                    { title: c.stat_2_title, desc: c.stat_2_desc, icon: "Database" },
-                                    { title: c.stat_3_title, desc: c.stat_3_desc, icon: "Gauge" }
-                                ].map((stat, i) => (
-                                    <LiquidGlassCard key={i} delay={0.8 + (i * 0.1)} className="text-left py-5 px-6">
-                                        <div className="flex items-center gap-3 mb-2">
-                                            <div className="w-8 h-8 rounded-full liquid-glass flex items-center justify-center text-white/80">
-                                                {renderIcon(stat.icon, { size: 16 })}
-                                            </div>
-                                            <h3 className="font-semibold text-lg">{stat.title}</h3>
-                                        </div>
-                                        <p className="text-sm text-white/50 pl-11">{stat.desc}</p>
-                                    </LiquidGlassCard>
-                                ))}
-                            </div>
 
                             <motion.div 
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ duration: 1, delay: 1.2 }}
-                                className="mt-20 font-heading italic text-2xl md:text-3xl text-white/40 tracking-wide"
+                                initial={{ filter: "blur(10px)", opacity: 0, y: 20 }}
+                                animate={{ filter: "blur(0px)", opacity: 1, y: 0 }}
+                                transition={{ duration: 0.8, delay: 1.3, ease: "easeOut" }}
+                                className="flex flex-col sm:flex-row items-stretch gap-4 mt-8"
                             >
-                                Unity · C# · XR · RAG · C++ · PowerShell
+                                <div className="liquid-glass rounded-[1.25rem] p-5 w-[220px]">
+                                    <Icons.Clock className="text-white mb-4" />
+                                    <div className="font-heading italic text-white text-4xl tracking-[-1px] leading-none">34.5 Min</div>
+                                    <div className="text-xs text-white/80 font-light mt-2">Average Videos Watch Time</div>
+                                </div>
+                                <div className="liquid-glass rounded-[1.25rem] p-5 w-[220px]">
+                                    <Icons.Globe className="text-white mb-4" />
+                                    <div className="font-heading italic text-white text-4xl tracking-[-1px] leading-none">2.8B+</div>
+                                    <div className="text-xs text-white/80 font-light mt-2">Users Across the Globe</div>
+                                </div>
                             </motion.div>
                         </div>
+
+                        {/* Partners */}
+                        <motion.div 
+                            initial={{ filter: "blur(10px)", opacity: 0, y: 20 }}
+                            animate={{ filter: "blur(0px)", opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 1.4, ease: "easeOut" }}
+                            className="relative z-10 flex flex-col items-center gap-4 pb-8 w-full mt-12"
+                        >
+                            <div className="liquid-glass rounded-full px-3.5 py-1 text-xs font-medium text-white/90">
+                                Collaborating with top aerospace pioneers globally
+                            </div>
+                            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 font-heading italic text-white text-2xl md:text-3xl tracking-tight opacity-80">
+                                <span>Aeon</span>
+                                <span>Vela</span>
+                                <span>Apex</span>
+                                <span>Orbit</span>
+                                <span>Zeno</span>
+                            </div>
+                        </motion.div>
                     </section>
 
-                    {/* Capabilities Section */}
-                    <section id="capabilities" className="relative min-h-screen py-24 px-6 md:px-16 lg:px-20">
-                        {/* Reusing video with a lower opacity overlay for depth */}
-                        <div className="absolute inset-0 bg-black/50 z-0 pointer-events-none"></div>
-                        
-                        <div className="relative z-10 max-w-7xl mx-auto">
-                            <SectionHeader kicker={c.capabilities_kicker} title={c.capabilities_title} />
-                            
-                            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                                <LiquidGlassCard delay={0.1} className="flex flex-col h-full">
-                                    <div className="w-12 h-12 rounded-2xl liquid-glass flex items-center justify-center mb-6">
-                                        <Package size={24} className="text-white/80" />
-                                    </div>
-                                    <h3 className="font-heading italic text-4xl mb-4">{c.cap_1_title}</h3>
-                                    <div className="text-xs font-mono text-white/50 mb-4">{c.cap_1_tags}</div>
-                                    <p className="text-white/70 leading-relaxed text-sm md:text-base">{c.cap_1_desc}</p>
-                                </LiquidGlassCard>
-                                
-                                <LiquidGlassCard delay={0.2} className="flex flex-col h-full">
-                                    <div className="w-12 h-12 rounded-2xl liquid-glass flex items-center justify-center mb-6">
-                                        <Database size={24} className="text-white/80" />
-                                    </div>
-                                    <h3 className="font-heading italic text-4xl mb-4">{c.cap_2_title}</h3>
-                                    <div className="text-xs font-mono text-white/50 mb-4">{c.cap_2_tags}</div>
-                                    <p className="text-white/70 leading-relaxed text-sm md:text-base">{c.cap_2_desc}</p>
-                                </LiquidGlassCard>
-                                
-                                <LiquidGlassCard delay={0.3} className="flex flex-col h-full">
-                                    <div className="w-12 h-12 rounded-2xl liquid-glass flex items-center justify-center mb-6">
-                                        <Cpu size={24} className="text-white/80" />
-                                    </div>
-                                    <h3 className="font-heading italic text-4xl mb-4">{c.cap_3_title}</h3>
-                                    <div className="text-xs font-mono text-white/50 mb-4">{c.cap_3_tags}</div>
-                                    <p className="text-white/70 leading-relaxed text-sm md:text-base">{c.cap_3_desc}</p>
-                                </LiquidGlassCard>
-                            </div>
-                        </div>
-                    </section>
+                    {/* Section 2 - Capabilities */}
+                    <section className="relative min-h-screen flex flex-col overflow-hidden px-8 md:px-16 lg:px-20 pt-24 pb-10">
+                        <FadingVideo 
+                            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260418_094631_d30ab262-45ee-4b7d-99f3-5d5848c8ef13.mp4" 
+                            className="absolute inset-0 w-full h-full object-cover z-0"
+                        />
 
-                    {/* Featured Projects Section */}
-                    <section id="projects" className="relative py-24 px-6 md:px-16 lg:px-20 bg-black">
-                        <div className="relative z-10 max-w-7xl mx-auto">
-                            <SectionHeader kicker={c.projects_kicker} title={c.projects_title} />
-                            
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                                {projects.map((proj, idx) => (
-                                    <ProjectCard key={idx} project={proj} index={idx} />
-                                ))}
+                        <div className="relative z-10 flex flex-col min-h-[calc(100vh-8.5rem)]">
+                            <div className="mb-auto">
+                                <div className="text-sm font-body text-white/80 mb-6 uppercase tracking-wider">// Capabilities</div>
+                                <h2 className="font-heading italic text-white text-6xl md:text-7xl lg:text-[6rem] leading-[0.9] tracking-[-3px]">
+                                    Production<br/>evolved
+                                </h2>
                             </div>
-                        </div>
-                    </section>
 
-                    {/* Contact Section */}
-                    <section id="contact" className="relative py-32 px-6 md:px-16 lg:px-20 text-center flex flex-col items-center justify-center min-h-[70vh]">
-                        <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
-                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/10 via-black to-black"></div>
-                        </div>
-                        
-                        <div className="relative z-10 max-w-3xl mx-auto w-full">
-                            <span className="text-sm font-mono tracking-widest text-white/50 uppercase block mb-6">// {c.contact_kicker}</span>
-                            <h2 className="font-heading italic text-5xl md:text-7xl lg:text-8xl mb-8 leading-tight whitespace-pre-line">
-                                {c.contact_title}
-                            </h2>
-                            <p className="text-lg text-white/60 mb-12 max-w-xl mx-auto leading-relaxed">
-                                {c.contact_desc}
-                            </p>
-                            
-                            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                                <a href="https://github.com/AybarsBarut" target="_blank" rel="noreferrer" className="liquid-glass-strong rounded-full px-8 py-4 flex items-center gap-3 hover:bg-white/10 transition-colors w-full sm:w-auto justify-center group">
-                                    <Github size={20} className="text-white/80" />
-                                    <span className="font-semibold">GitHub</span>
-                                </a>
-                                <a href="https://www.linkedin.com/in/fahriaybarsbarut1853/" target="_blank" rel="noreferrer" className="liquid-glass rounded-full px-8 py-4 flex items-center gap-3 hover:bg-white/10 transition-colors w-full sm:w-auto justify-center group">
-                                    <Linkedin size={20} className="text-white/80" />
-                                    <span className="font-semibold">LinkedIn</span>
-                                </a>
-                                <a href="mailto:aybarsbarut@gmail.com" className="liquid-glass rounded-full px-8 py-4 flex items-center gap-3 hover:bg-white/10 transition-colors w-full sm:w-auto justify-center group">
-                                    <Mail size={20} className="text-white/80" />
-                                    <span className="font-semibold">Email</span>
-                                </a>
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
+                                {/* Card 1 */}
+                                <div className="liquid-glass rounded-[1.25rem] p-6 min-h-[360px] flex flex-col">
+                                    <div className="flex items-start justify-between gap-4">
+                                        <div className="w-11 h-11 liquid-glass rounded-[0.75rem] flex items-center justify-center shrink-0">
+                                            <Icons.AIScenery className="h-6 w-6 text-white" />
+                                        </div>
+                                        <div className="flex flex-wrap justify-end gap-1.5 max-w-[70%]">
+                                            {["Natural Context", "Photo Realism", "Infinite Settings", "Eco-Vibe"].map((tag, i) => (
+                                                <span key={i} className="liquid-glass rounded-full px-3 py-1 text-[11px] text-white/90 whitespace-nowrap">{tag}</span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    <div className="flex-1"></div>
+                                    <div className="mt-6">
+                                        <h3 className="font-heading italic text-white text-3xl md:text-4xl tracking-[-1px] leading-none">AI Scenery</h3>
+                                        <p className="mt-3 text-sm text-white/90 font-light leading-snug max-w-[32ch]">
+                                            AI analyzes your product to create indistinguishable natural environments — from Icelandic cliffs to misty forests.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                {/* Card 2 */}
+                                <div className="liquid-glass rounded-[1.25rem] p-6 min-h-[360px] flex flex-col">
+                                    <div className="flex items-start justify-between gap-4">
+                                        <div className="w-11 h-11 liquid-glass rounded-[0.75rem] flex items-center justify-center shrink-0">
+                                            <Icons.BatchProduction className="h-6 w-6 text-white" />
+                                        </div>
+                                        <div className="flex flex-wrap justify-end gap-1.5 max-w-[70%]">
+                                            {["Scale Fast", "Visual Consistency", "Time Saver", "Ready to Post"].map((tag, i) => (
+                                                <span key={i} className="liquid-glass rounded-full px-3 py-1 text-[11px] text-white/90 whitespace-nowrap">{tag}</span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    <div className="flex-1"></div>
+                                    <div className="mt-6">
+                                        <h3 className="font-heading italic text-white text-3xl md:text-4xl tracking-[-1px] leading-none">Batch Production</h3>
+                                        <p className="mt-3 text-sm text-white/90 font-light leading-snug max-w-[32ch]">
+                                            Style your entire product line in minutes. Create a unified visual identity for catalogues and social media without weeks of retouching.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                {/* Card 3 */}
+                                <div className="liquid-glass rounded-[1.25rem] p-6 min-h-[360px] flex flex-col">
+                                    <div className="flex items-start justify-between gap-4">
+                                        <div className="w-11 h-11 liquid-glass rounded-[0.75rem] flex items-center justify-center shrink-0">
+                                            <Icons.SmartLighting className="h-6 w-6 text-white" />
+                                        </div>
+                                        <div className="flex flex-wrap justify-end gap-1.5 max-w-[70%]">
+                                            {["Ray Tracing", "Physical Shadows", "Studio Quality", "Sunlight Sync"].map((tag, i) => (
+                                                <span key={i} className="liquid-glass rounded-full px-3 py-1 text-[11px] text-white/90 whitespace-nowrap">{tag}</span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    <div className="flex-1"></div>
+                                    <div className="mt-6">
+                                        <h3 className="font-heading italic text-white text-3xl md:text-4xl tracking-[-1px] leading-none">Smart Lighting</h3>
+                                        <p className="mt-3 text-sm text-white/90 font-light leading-snug max-w-[32ch]">
+                                            Automatic lighting and material adjustment. Achieve flawless integration with realistic shadows and sunlight.
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        
-                        <div className="relative z-10 mt-32 text-white/30 text-sm font-mono flex items-center gap-4">
-                            <span>© {new Date().getFullYear()} Archura</span>
-                            <span className="w-1 h-1 rounded-full bg-white/30"></span>
-                            <span>System Online</span>
                         </div>
                     </section>
                 </div>
