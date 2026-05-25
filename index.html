@@ -173,8 +173,10 @@
             AIScenery: (props) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" {...props}><path d="M5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h14q.825 0 1.413.588T21 5v14q0 .825-.587 1.413T19 21H5Zm1-4h12l-3.75-5-3 4L9 13l-3 4Z" /></svg>,
             BatchProduction: (props) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" {...props}><path d="M4 6.47 5.76 10H20v8H4V6.47M22 4h-4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.89-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4Z" /></svg>,
             SmartLighting: (props) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" {...props}><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1Zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7Z" /></svg>,
-            Code: (props) => <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>,
-            Cpu: (props) => <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+            Code: (props) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>,
+            Cpu: (props) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>,
+            Sparkles: (props) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" /></svg>,
+            Activity: (props) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" {...props}><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" /></svg>
         };
 
         const FadingVideo = ({ src, className, style }) => {
@@ -517,7 +519,7 @@
                                 <div className="liquid-glass rounded-[1.25rem] p-6 min-h-[360px] flex flex-col">
                                     <div className="flex items-start justify-between gap-4">
                                         <div className="w-11 h-11 liquid-glass rounded-[0.75rem] flex items-center justify-center shrink-0">
-                                            <Icons.AIScenery className="h-6 w-6 text-white" />
+                                            <Icons.Sparkles className="h-6 w-6 text-white" />
                                         </div>
                                         <div className="flex flex-wrap justify-end gap-1.5 max-w-[70%]">
                                             {["Python", "LLM", "Prompt Compress", "Tokens"].map((tag, i) => (
@@ -538,7 +540,7 @@
                                 <div className="liquid-glass rounded-[1.25rem] p-6 min-h-[360px] flex flex-col">
                                     <div className="flex items-start justify-between gap-4">
                                         <div className="w-11 h-11 liquid-glass rounded-[0.75rem] flex items-center justify-center shrink-0">
-                                            <Icons.SmartLighting className="h-6 w-6 text-white" />
+                                            <Icons.Activity className="h-6 w-6 text-white" />
                                         </div>
                                         <div className="flex flex-wrap justify-end gap-1.5 max-w-[70%]">
                                             {["Unity", "C#", "Zero-GC", "Diagnostics"].map((tag, i) => (
@@ -571,77 +573,85 @@
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
                                 {/* Cert 1 */}
-                                <div className="liquid-glass rounded-[1.25rem] p-6 min-h-[240px] flex flex-col justify-between group hover:bg-white/10 transition-colors relative overflow-hidden">
+                                <div className="liquid-glass rounded-[1.25rem] p-6 min-h-[270px] flex flex-col justify-between group hover:bg-white/10 transition-colors relative overflow-hidden">
                                     <div className="flex items-start justify-between relative z-10">
                                         <div className="w-14 h-14 liquid-glass rounded-full flex items-center justify-center shrink-0 p-3">
                                             <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Cisco_logo.svg" alt="Cisco" className="w-full h-full object-contain brightness-0 invert opacity-90" />
                                         </div>
                                         <a href="https://www.credly.com/badges/ed18adc3-b434-46b4-a316-7799e4024489/linked_in_profile" target="_blank" className="liquid-glass rounded-full px-3 py-1 text-[11px] text-white/90 whitespace-nowrap hover:bg-white/20 transition-colors">Credential ↗</a>
                                     </div>
-                                    <div className="mt-8 relative z-10">
-                                        <div className="text-xs text-white/60 mb-2">Cisco</div>
+                                    <div className="mt-6 relative z-10">
+                                        <div className="text-xs text-white/60 mb-1">Cisco</div>
                                         <h3 className="text-xl text-white font-medium leading-tight">Networking Basics</h3>
+                                        <p className="text-xs text-white/80 mt-2 font-light leading-snug">Foundations of network architecture, IP addressing, subnetting, routing principles, and protocol suites (TCP/IP, OSI).</p>
+                                        <div className="text-[10px] text-white/40 mt-3 font-mono">Skills: Routing, Subnetting, TCP/IP</div>
                                     </div>
                                 </div>
 
                                 {/* Cert 2 */}
-                                <div className="liquid-glass rounded-[1.25rem] p-6 min-h-[240px] flex flex-col justify-between group hover:bg-white/10 transition-colors relative overflow-hidden">
+                                <div className="liquid-glass rounded-[1.25rem] p-6 min-h-[270px] flex flex-col justify-between group hover:bg-white/10 transition-colors relative overflow-hidden">
                                     <div className="flex items-start justify-between relative z-10">
                                         <div className="w-14 h-14 liquid-glass rounded-full flex items-center justify-center shrink-0 p-3">
                                             <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM" className="w-full h-full object-contain brightness-0 invert opacity-90" />
                                         </div>
                                         <a href="https://www.credly.com/badges/77a3e590-eec3-4ced-8496-ab86c62281af/linked_in_profile" target="_blank" className="liquid-glass rounded-full px-3 py-1 text-[11px] text-white/90 whitespace-nowrap hover:bg-white/20 transition-colors">Credential ↗</a>
                                     </div>
-                                    <div className="mt-8 relative z-10">
-                                        <div className="text-xs text-white/60 mb-2">IBM</div>
+                                    <div className="mt-6 relative z-10">
+                                        <div className="text-xs text-white/60 mb-1">IBM</div>
                                         <h3 className="text-xl text-white font-medium leading-tight">Data Fundamentals</h3>
+                                        <p className="text-xs text-white/80 mt-2 font-light leading-snug">Core concepts in data engineering, relational databases, SQL queries, and the structure of modern data pipeline architectures.</p>
+                                        <div className="text-[10px] text-white/40 mt-3 font-mono">Skills: SQL, Databases, Data Pipelines</div>
                                     </div>
                                 </div>
 
                                 {/* Cert 3 */}
-                                <div className="liquid-glass rounded-[1.25rem] p-6 min-h-[240px] flex flex-col justify-between group hover:bg-white/10 transition-colors relative overflow-hidden">
+                                <div className="liquid-glass rounded-[1.25rem] p-6 min-h-[270px] flex flex-col justify-between group hover:bg-white/10 transition-colors relative overflow-hidden">
                                     <div className="flex items-start justify-between relative z-10">
                                         <div className="w-14 h-14 liquid-glass rounded-full flex items-center justify-center shrink-0 p-3">
                                             <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Cisco_logo.svg" alt="Cisco" className="w-full h-full object-contain brightness-0 invert opacity-90" />
                                         </div>
                                         <a href="https://www.credly.com/badges/e3fd7bf4-1a87-4a69-a980-6851f18b52ce/linked_in_profile" target="_blank" className="liquid-glass rounded-full px-3 py-1 text-[11px] text-white/90 whitespace-nowrap hover:bg-white/20 transition-colors">Credential ↗</a>
                                     </div>
-                                    <div className="mt-8 relative z-10">
-                                        <div className="text-xs text-white/60 mb-2">Cisco</div>
+                                    <div className="mt-6 relative z-10">
+                                        <div className="text-xs text-white/60 mb-1">Cisco</div>
                                         <h3 className="text-xl text-white font-medium leading-tight">C++ Advanced</h3>
-                                        <div className="text-[10px] text-white/40 mt-3 font-mono">Skills: C++</div>
+                                        <p className="text-xs text-white/80 mt-2 font-light leading-snug">Advanced object-oriented designs, smart pointers, templates, custom memory allocation, and concurrent execution patterns.</p>
+                                        <div className="text-[10px] text-white/40 mt-3 font-mono">Skills: C++, Advanced OOP, Concurrency</div>
                                     </div>
                                 </div>
 
                                 {/* Cert 4 */}
-                                <div className="liquid-glass rounded-[1.25rem] p-6 min-h-[240px] flex flex-col justify-between group hover:bg-white/10 transition-colors relative overflow-hidden">
+                                <div className="liquid-glass rounded-[1.25rem] p-6 min-h-[270px] flex flex-col justify-between group hover:bg-white/10 transition-colors relative overflow-hidden">
                                     <div className="flex items-start justify-between relative z-10">
                                         <div className="w-14 h-14 liquid-glass rounded-full flex items-center justify-center shrink-0 p-3">
                                             <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Cisco_logo.svg" alt="Cisco" className="w-full h-full object-contain brightness-0 invert opacity-90" />
                                         </div>
                                         <a href="https://www.credly.com/badges/cfc7b96f-0c5a-4373-a715-194571f5d083/linked_in_profile" target="_blank" className="liquid-glass rounded-full px-3 py-1 text-[11px] text-white/90 whitespace-nowrap hover:bg-white/20 transition-colors">Credential ↗</a>
                                     </div>
-                                    <div className="mt-8 relative z-10">
-                                        <div className="text-xs text-white/60 mb-2">Cisco</div>
+                                    <div className="mt-6 relative z-10">
+                                        <div className="text-xs text-white/60 mb-1">Cisco</div>
                                         <h3 className="text-xl text-white font-medium leading-tight">Endpoint Security</h3>
-                                        <div className="text-[10px] text-white/40 mt-3 font-mono">Skills: Cybersecurity</div>
+                                        <p className="text-xs text-white/80 mt-2 font-light leading-snug">Techniques for securing physical and virtual endpoints, malware diagnostics, configuring host-based firewalls, and defense layers.</p>
+                                        <div className="text-[10px] text-white/40 mt-3 font-mono">Skills: Cybersecurity, Malware Analysis, Firewalls</div>
                                     </div>
                                 </div>
 
                                 {/* Cert 5 */}
-                                <div className="liquid-glass rounded-[1.25rem] p-6 min-h-[240px] flex flex-col justify-between group hover:bg-white/10 transition-colors relative overflow-hidden">
+                                <div className="liquid-glass rounded-[1.25rem] p-6 min-h-[270px] flex flex-col justify-between group hover:bg-white/10 transition-colors relative overflow-hidden">
                                     <div className="flex items-start justify-between relative z-10">
                                         <div className="w-14 h-14 liquid-glass rounded-full flex items-center justify-center shrink-0 p-3">
                                             <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Cisco_logo.svg" alt="Cisco" className="w-full h-full object-contain brightness-0 invert opacity-90" />
                                         </div>
                                         <a href="https://www.credly.com/badges/29885bb6-4b12-45c2-ae0d-4d4c18ab7180/linked_in_profile" target="_blank" className="liquid-glass rounded-full px-3 py-1 text-[11px] text-white/90 whitespace-nowrap hover:bg-white/20 transition-colors">Credential ↗</a>
                                     </div>
-                                    <div className="mt-8 relative z-10">
-                                        <div className="text-xs text-white/60 mb-2">Cisco</div>
+                                    <div className="mt-6 relative z-10">
+                                        <div className="text-xs text-white/60 mb-1">Cisco</div>
                                         <h3 className="text-xl text-white font-medium leading-tight">Introduction to<br/>Cybersecurity</h3>
-                                        <div className="text-[10px] text-white/40 mt-3 font-mono">Skills: Cybersecurity</div>
+                                        <p className="text-xs text-white/80 mt-2 font-light leading-snug">Fundamental cybersecurity concepts, identifying digital vulnerabilities, cryptography basics, and modern defensive strategies.</p>
+                                        <div className="text-[10px] text-white/40 mt-3 font-mono">Skills: Cybersecurity, Threat Analysis, Cryptography</div>
                                     </div>
                                 </div>
+                            </div>
                             </div>
                         </div>
                     </section>
