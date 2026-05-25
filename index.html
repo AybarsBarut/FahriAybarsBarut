@@ -109,6 +109,14 @@
         .hero-text-shadow {
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7), 0 4px 30px rgba(0, 0, 0, 0.9);
         }
+
+        /* Hide the randomly-ID'd NEAT watermark */
+        a[href*="neat.firecms.co"] {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
     </style>
 </head>
 <body>
@@ -312,7 +320,7 @@
                     grainSparsity: 0,
                     grainIntensity: 0.05,
                     grainSpeed: 1,
-                    resolution: 0.5,
+                    resolution: 0.3,
                     yOffset: -252,
                     yOffsetWaveMultiplier: 8.5,
                     yOffsetColorMultiplier: 7.8,
@@ -347,7 +355,7 @@
                     iridescenceEnabled: false,
                     iridescenceIntensity: 1,
                     iridescenceSpeed: 1,
-                    bloomIntensity: 2.1,
+                    bloomIntensity: 0.0,
                     bloomThreshold: 0.7,
                     chromaticAberration: 0.5
                 });
