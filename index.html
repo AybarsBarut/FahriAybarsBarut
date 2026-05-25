@@ -39,7 +39,7 @@
     <script src="https://unpkg.com/framer-motion@11.11.17/dist/framer-motion.js"></script>
     
     <!-- FireCMS Neat Gradient -->
-    <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/@firecms/neat@0.8.0/dist/index.umd.js"></script>
+    <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/@firecms/neat@0.8.0/dist/index.umd.js?cb=2"></script>
     
     <style>
         body {
@@ -283,27 +283,25 @@
 
                 const neatInstance = new NeatGradient({
                     ref: canvasElement,
-                    config: {
-                        colors: [
-                            { color: "#090A1E", enabled: true },
-                            { color: "#1A0B2E", enabled: true },
-                            { color: "#0B233A", enabled: true },
-                            { color: "#2F1854", enabled: true }
-                        ],
-                        speed: 2.5,
-                        horizontalPressure: 3,
-                        verticalPressure: 3,
-                        waveFrequencyX: 2,
-                        waveFrequencyY: 2,
-                        waveAmplitude: 5,
-                        shadows: 0,
-                        highlights: 3,
-                        colorBlending: 5,
-                        backgroundColor: "#020205",
-                        backgroundAlpha: 1,
-                        grainIntensity: 0.1,
-                        resolution: 0.8
-                    }
+                    colors: [
+                        { color: "#090A1E", enabled: true },
+                        { color: "#1A0B2E", enabled: true },
+                        { color: "#0B233A", enabled: true },
+                        { color: "#2F1854", enabled: true }
+                    ],
+                    speed: 2.5,
+                    horizontalPressure: 3,
+                    verticalPressure: 3,
+                    waveFrequencyX: 2,
+                    waveFrequencyY: 2,
+                    waveAmplitude: 5,
+                    shadows: 0,
+                    highlights: 3,
+                    colorBlending: 5,
+                    backgroundColor: "#020205",
+                    backgroundAlpha: 1,
+                    grainIntensity: 0.1,
+                    resolution: 0.8
                 });
 
                 return () => {
