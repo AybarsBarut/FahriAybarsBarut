@@ -284,27 +284,78 @@
                 const neatInstance = new NeatGradient({
                     ref: canvasElement,
                     colors: [
-                        { color: "#090A1E", enabled: true },
-                        { color: "#1A0B2E", enabled: true },
-                        { color: "#0B233A", enabled: true },
-                        { color: "#2F1854", enabled: true }
+                        { color: '#0055FF', enabled: true },
+                        { color: '#00EAFF', enabled: true },
+                        { color: '#FFFFFF', enabled: true },
+                        { color: '#6AE6C8', enabled: true },
+                        { color: '#0E55C7', enabled: true }
                     ],
-                    speed: 2.5,
+                    speed: 4,
                     horizontalPressure: 3,
-                    verticalPressure: 3,
-                    waveFrequencyX: 2,
+                    verticalPressure: 4,
+                    waveFrequencyX: 3,
                     waveFrequencyY: 2,
-                    waveAmplitude: 5,
-                    shadows: 0,
-                    highlights: 3,
-                    colorBlending: 5,
-                    backgroundColor: "#020205",
+                    waveAmplitude: 2,
+                    shadows: 7,
+                    highlights: 5,
+                    colorBrightness: 1.05,
+                    colorSaturation: 2,
+                    wireframe: false,
+                    colorBlending: 9,
+                    backgroundColor: '#727683',
                     backgroundAlpha: 1,
-                    grainIntensity: 0.1,
-                    resolution: 0.8
+                    grainScale: 2,
+                    grainSparsity: 0,
+                    grainIntensity: 0.05,
+                    grainSpeed: 1,
+                    resolution: 0.5,
+                    yOffset: -252,
+                    yOffsetWaveMultiplier: 8.5,
+                    yOffsetColorMultiplier: 7.8,
+                    yOffsetFlowMultiplier: 9,
+                    flowDistortionA: 3.7,
+                    flowDistortionB: 1.4,
+                    flowScale: 2.9,
+                    flowEase: 0.32,
+                    flowEnabled: false,
+                    enableProceduralTexture: false,
+                    textureVoidLikelihood: 0.27,
+                    textureVoidWidthMin: 60,
+                    textureVoidWidthMax: 420,
+                    textureBandDensity: 1.2,
+                    textureColorBlending: 0.06,
+                    textureSeed: 333,
+                    textureEase: 0.25,
+                    proceduralBackgroundColor: '#0E0707',
+                    textureShapeTriangles: 20,
+                    textureShapeCircles: 15,
+                    textureShapeBars: 15,
+                    textureShapeSquiggles: 10,
+                    domainWarpEnabled: true,
+                    domainWarpIntensity: 0.65,
+                    domainWarpScale: 6.6,
+                    vignetteIntensity: 1,
+                    vignetteRadius: 0.8,
+                    fresnelEnabled: false,
+                    fresnelPower: 2,
+                    fresnelIntensity: 0.5,
+                    fresnelColor: '#FFFFFF',
+                    iridescenceEnabled: false,
+                    iridescenceIntensity: 1,
+                    iridescenceSpeed: 1,
+                    bloomIntensity: 2.1,
+                    bloomThreshold: 0.7,
+                    chromaticAberration: 0.5
                 });
 
+                const handleScroll = () => {
+                    neatInstance.yOffset = window.scrollY;
+                };
+
+                window.addEventListener("scroll", handleScroll);
+
                 return () => {
+                    window.removeEventListener("scroll", handleScroll);
                     if (neatInstance) {
                         neatInstance.destroy();
                     }
