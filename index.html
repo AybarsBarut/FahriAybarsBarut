@@ -38,6 +38,9 @@
     <!-- Framer Motion -->
     <script src="https://unpkg.com/framer-motion@11.11.17/dist/framer-motion.js"></script>
     
+    <!-- FireCMS Neat Gradient -->
+    <script src="https://cdn.jsdelivr.net/npm/@firecms/neat@0.8.0/dist/index.umd.js"></script>
+    
     <style>
         body {
             background-color: #000;
@@ -234,16 +237,54 @@
         };
 
         const App = () => {
+            useEffect(() => {
+                const canvasElement = document.getElementById("gradient-canvas");
+                if (!canvasElement) return;
+
+                const NeatGradient = window.neat ? window.neat.NeatGradient : null;
+                if (!NeatGradient) {
+                    console.error("NeatGradient not found on window.neat");
+                    return;
+                }
+
+                const neatInstance = new NeatGradient({
+                    ref: canvasElement,
+                    config: {
+                        colors: [
+                            { color: "#090A1E", enabled: true },
+                            { color: "#1A0B2E", enabled: true },
+                            { color: "#0B233A", enabled: true },
+                            { color: "#2F1854", enabled: true }
+                        ],
+                        speed: 2.5,
+                        horizontalPressure: 3,
+                        verticalPressure: 3,
+                        waveFrequencyX: 2,
+                        waveFrequencyY: 2,
+                        waveAmplitude: 5,
+                        shadows: 0,
+                        highlights: 3,
+                        colorBlending: 5,
+                        backgroundColor: "#020205",
+                        backgroundAlpha: 1,
+                        grainIntensity: 0.1,
+                        resolution: 0.8
+                    }
+                });
+
+                return () => {
+                    if (neatInstance) {
+                        neatInstance.destroy();
+                    }
+                };
+            }, []);
+
             return (
                 <div className="bg-black min-h-screen text-white font-body selection:bg-white/30">
                     {/* Global Fixed Background */}
-                    <video 
-                        src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260418_080021_d598092b-c4c2-4e53-8e46-94cf9064cd50.mp4" 
-                        className="fixed inset-0 w-full h-full object-cover z-0"
-                        autoPlay 
-                        muted 
-                        loop 
-                        playsInline
+                    <canvas 
+                        id="gradient-canvas" 
+                        className="fixed inset-0 w-full h-full object-cover z-0 pointer-events-none"
                     />
 
                     {/* Section 1 - Hero */}
