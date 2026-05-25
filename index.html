@@ -48,6 +48,13 @@
             overflow-x: hidden;
         }
 
+        #gradient-canvas {
+            will-change: transform;
+            transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+            contain: strict;
+        }
+
         .liquid-glass {
             background: rgba(10, 15, 30, 0.55);
             background-blend-mode: luminosity;
@@ -360,14 +367,37 @@
                     chromaticAberration: 0.5
                 });
 
-                const handleScroll = () => {
-                    neatInstance.yOffset = window.scrollY;
+                let targetY = window.scrollY;
+                let currentY = window.scrollY;
+                let rafId = null;
+
+                const updateGradient = () => {
+                    const diff = targetY - currentY;
+                    if (Math.abs(diff) > 0.5) {
+                        currentY += diff * 0.08; // smooth easing factor
+                        neatInstance.yOffset = currentY;
+                        rafId = requestAnimationFrame(updateGradient);
+                    } else {
+                        currentY = targetY;
+                        neatInstance.yOffset = currentY;
+                        rafId = null;
+                    }
                 };
 
-                window.addEventListener("scroll", handleScroll);
+                const handleScroll = () => {
+                    targetY = window.scrollY;
+                    if (rafId === null) {
+                        rafId = requestAnimationFrame(updateGradient);
+                    }
+                };
+
+                window.addEventListener("scroll", handleScroll, { passive: true });
 
                 return () => {
                     window.removeEventListener("scroll", handleScroll);
+                    if (rafId) {
+                        cancelAnimationFrame(rafId);
+                    }
                     if (neatInstance) {
                         neatInstance.destroy();
                     }
